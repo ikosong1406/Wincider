@@ -154,10 +154,10 @@ const Services = () => {
       <section className="bg-[#ffda93] hero-section fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-20">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold text-[#333333] mb-6">
               Our Services
             </h1>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+            <p className="text-xl text-[#333333] max-w-3xl mx-auto">
               Professional makeup artistry tailored to your unique style and
               occasion
             </p>

@@ -267,7 +267,7 @@ const Portfolio = () => {
   return (
     <div className="bg-black min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-black to-gray-900 hero-section fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-20 border-b border-[#FFD700]/20">
+      <section className="bg-black hero-section fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-20 border-b border-[#FFD700]/20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             <span className="text-white">Our </span>
@@ -319,7 +319,7 @@ const Portfolio = () => {
               {filteredProjects.map((project) => (
                 <div
                   key={project.id}
-                  className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-black border border-[#FFD700]/20 hover:border-[#FFD700]/40 transition-all duration-300 cursor-pointer"
+                  className="group relative overflow-hidden rounded-2xl bg-gray-900 border border-[#FFD700]/20 hover:border-[#FFD700]/40 transition-all duration-300 cursor-pointer"
                   onClick={() => setSelectedProject(project)}
                 >
                   {/* Project Image */}
@@ -371,7 +371,7 @@ const Portfolio = () => {
       {selectedProject && (
         <div className="fixed inset-0 bg-black/95 z-50 overflow-y-auto">
           <div className="container mx-auto px-4 py-8 min-h-screen flex items-center justify-center">
-            <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-3xl border border-[#FFD700]/20 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="relative bg-gray-900 rounded-3xl border border-[#FFD700]/20 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
               {/* Close Button */}
               <button
                 onClick={() => setSelectedProject(null)}
@@ -404,19 +404,19 @@ const Portfolio = () => {
               <div className="p-8">
                 {/* Quick Info Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                  <div className="bg-gray-900/50 rounded-xl p-4 border border-[#FFD700]/10">
+                  <div className="bg-black/50 rounded-xl p-4 border border-[#FFD700]/10">
                     <p className="text-sm text-gray-500 mb-1">Client</p>
                     <p className="text-white font-semibold">
                       {selectedProject.client}
                     </p>
                   </div>
-                  <div className="bg-gray-900/50 rounded-xl p-4 border border-[#FFD700]/10">
+                  <div className="bg-black/50 rounded-xl p-4 border border-[#FFD700]/10">
                     <p className="text-sm text-gray-500 mb-1">Duration</p>
                     <p className="text-white font-semibold">
                       {selectedProject.duration}
                     </p>
                   </div>
-                  <div className="bg-gray-900/50 rounded-xl p-4 border border-[#FFD700]/10">
+                  <div className="bg-black/50 rounded-xl p-4 border border-[#FFD700]/10">
                     <p className="text-sm text-gray-500 mb-1">Team</p>
                     <p className="text-white font-semibold">
                       {selectedProject.team}
@@ -481,7 +481,7 @@ const Portfolio = () => {
                 </div>
 
                 {/* Results */}
-                <div className="mb-8 p-6 bg-gradient-to-r from-[#FFD700]/10 to-transparent rounded-xl border border-[#FFD700]/20">
+                <div className="mb-8 p-6 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-xl">
                   <h3 className="text-xl font-bold text-white mb-2">Results</h3>
                   <p className="text-[#FFD700] text-lg">
                     {selectedProject.results}

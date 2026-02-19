@@ -20,18 +20,19 @@ import {
   FaChartLine,
   FaCogs,
   FaServer,
+  FaEnvelope,
 } from "react-icons/fa";
 import { RiFlashlightLine, RiCodeBoxLine } from "react-icons/ri";
 
-// Tech-themed placeholder images (using Unsplash tech-related images)
+// Replaced images with ones that don't have blue tones - using more neutral/golden tone images
 const techHero =
-  "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80";
+  "https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"; // Dark tech setup with warm lighting
 const techTeam =
-  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80";
+  "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"; // Team meeting with warm tones
 const techOffice =
-  "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80";
+  "https://images.unsplash.com/photo-1497215842964-222b430dc094?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"; // Modern office with warm lighting
 const techDashboard =
-  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80";
+  "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"; // Analytics dashboard with dark theme
 
 const Home = () => {
   useEffect(() => {
@@ -139,7 +140,6 @@ const Home = () => {
         "Database design & optimization",
         "Real-time features",
       ],
-      gradient: "from-blue-500 to-cyan-500",
     },
     {
       id: 2,
@@ -152,7 +152,6 @@ const Home = () => {
         "Push notifications",
         "Offline functionality",
       ],
-      gradient: "from-purple-500 to-pink-500",
     },
     {
       id: 3,
@@ -165,7 +164,6 @@ const Home = () => {
         "Container orchestration",
         "24/7 monitoring",
       ],
-      gradient: "from-cyan-500 to-teal-500",
     },
     {
       id: 4,
@@ -178,7 +176,6 @@ const Home = () => {
         "User testing",
         "Investor-ready demo",
       ],
-      gradient: "from-yellow-500 to-amber-500",
     },
   ];
 
@@ -198,20 +195,13 @@ const Home = () => {
 
   return (
     <div className="bg-black">
-      {/* Hero Section - Modern Tech Company */}
-      <section className="relative bg-gradient-to-br from-black via-gray-900 to-black hero-section fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out overflow-hidden">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-[#FFD700] rounded-full filter blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#FFD700] rounded-full filter blur-3xl opacity-10"></div>
-        </div>
-
-        <div className="container mx-auto px-4 py-20 md:py-32 relative z-10">
+      {/* Hero Section */}
+      <section className="relative bg-black hero-section fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out">
+        <div className="container mx-auto px-4 py-20 md:py-32">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             {/* Left Content */}
             <div className="lg:w-1/2">
-              <div className="inline-flex items-center gap-2 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-full px-4 py-2 mb-8">
-                <RiFlashlightLine className="text-[#FFD700]" />
+              <div className="inline-flex items-center gap-2 border border-[#FFD700]/20 rounded-full px-4 py-2 mb-8">
                 <span className="text-[#FFD700] text-sm">
                   Innovation Driven Excellence
                 </span>
@@ -234,14 +224,14 @@ const Home = () => {
               <div className="flex flex-wrap gap-4 mb-12">
                 <button
                   onClick={() => (window.location.href = "/contact")}
-                  className="bg-[#FFD700] text-black px-8 py-4 rounded-xl font-semibold text-lg flex items-center gap-3 hover:shadow-lg hover:shadow-[#FFD700]/20 hover:-translate-y-1 transition-all duration-300"
+                  className="bg-[#FFD700] text-black px-8 py-4 rounded-xl font-semibold text-lg flex items-center gap-3 hover:bg-[#FFD700]/90 transition-all duration-300"
                 >
                   Start Your Project
                   <FaArrowRight />
                 </button>
                 <button
                   onClick={() => (window.location.href = "/portfolio")}
-                  className="border border-[#FFD700]/20 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#FFD700]/10 hover:border-[#FFD700]/40 transition-all duration-300"
+                  className="border border-[#FFD700]/20 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:border-[#FFD700]/40 transition-all duration-300"
                 >
                   View Our Work
                 </button>
@@ -262,8 +252,7 @@ const Home = () => {
 
             {/* Right Content - Code Visualization */}
             <div className="lg:w-1/2 relative">
-              <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-3xl border border-[#FFD700]/20 p-8">
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#FFD700]/10 rounded-full blur-2xl"></div>
+              <div className="relative bg-gray-900 rounded-3xl border border-[#FFD700]/20 p-8">
                 <pre className="text-sm text-gray-400 overflow-x-auto">
                   <code>
                     {`// Your next big idea starts here
@@ -282,7 +271,7 @@ const innovate = async () => {
               </div>
 
               {/* Floating Stats */}
-              <div className="absolute -bottom-6 -left-6 bg-black border border-[#FFD700]/20 p-5 rounded-xl backdrop-blur-sm">
+              <div className="absolute -bottom-6 -left-6 bg-gray-900 border border-[#FFD700]/20 p-5 rounded-xl">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-[#FFD700]/10 rounded-lg flex items-center justify-center">
                     <FaRocket className="text-[#FFD700]" />
@@ -296,7 +285,7 @@ const innovate = async () => {
                 </div>
               </div>
 
-              <div className="absolute -top-6 -right-6 bg-black border border-[#FFD700]/20 p-5 rounded-xl backdrop-blur-sm">
+              <div className="absolute -top-6 -right-6 bg-gray-900 border border-[#FFD700]/20 p-5 rounded-xl">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-[#FFD700]/10 rounded-lg flex items-center justify-center">
                     <FaUsers className="text-[#FFD700]" />
@@ -313,7 +302,7 @@ const innovate = async () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-24">
+      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-24 border-t border-[#FFD700]/20">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             {/* Left - Image */}
@@ -328,7 +317,7 @@ const innovate = async () => {
               </div>
 
               {/* Experience Badge */}
-              <div className="absolute -bottom-6 -right-6 bg-black border border-[#FFD700]/20 p-6 rounded-2xl backdrop-blur-sm z-20">
+              <div className="absolute -bottom-6 -right-6 bg-gray-900 border border-[#FFD700]/20 p-6 rounded-2xl z-20">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-[#FFD700]">7+</div>
                   <div className="text-gray-400">Years of Excellence</div>
@@ -338,7 +327,7 @@ const innovate = async () => {
 
             {/* Right - Content */}
             <div className="lg:w-1/2">
-              <div className="inline-flex items-center gap-2 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-full px-4 py-2 mb-6">
+              <div className="inline-flex items-center gap-2 border border-[#FFD700]/20 rounded-full px-4 py-2 mb-6">
                 <RiCodeBoxLine className="text-[#FFD700]" />
                 <span className="text-[#FFD700] text-sm">Why Choose Us</span>
               </div>
@@ -376,10 +365,10 @@ const innovate = async () => {
       </section>
 
       {/* Services Section */}
-      <section className="bg-gradient-to-b from-black to-gray-900 fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-24 border-y border-[#FFD700]/20">
+      <section className="bg-gray-900 fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-24 border-y border-[#FFD700]/20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-full px-4 py-2 mb-4">
+            <div className="inline-flex items-center gap-2 border border-[#FFD700]/20 rounded-full px-4 py-2 mb-4">
               <FaCogs className="text-[#FFD700]" />
               <span className="text-[#FFD700] text-sm">What We Offer</span>
             </div>
@@ -396,12 +385,10 @@ const innovate = async () => {
             {services.map((service) => (
               <div
                 key={service.id}
-                className="group bg-gradient-to-br from-gray-900 to-black rounded-2xl border border-[#FFD700]/20 hover:border-[#FFD700]/40 transition-all duration-300 overflow-hidden"
+                className="group bg-black rounded-2xl border border-[#FFD700]/20 hover:border-[#FFD700]/40 transition-all duration-300 overflow-hidden"
               >
                 <div className="p-6">
-                  <div
-                    className={`w-14 h-14 bg-gradient-to-br ${service.gradient} rounded-xl flex items-center justify-center text-white text-2xl mb-4 group-hover:scale-110 transition-transform`}
-                  >
+                  <div className="w-14 h-14 bg-[#FFD700]/10 rounded-xl flex items-center justify-center text-[#FFD700] text-2xl mb-4 group-hover:scale-110 transition-transform">
                     {service.icon}
                   </div>
                   <h3 className="text-xl font-bold text-white mb-2">
@@ -414,7 +401,7 @@ const innovate = async () => {
                     {service.features.map((feature, idx) => (
                       <li
                         key={idx}
-                        className="flex items-start gap-2 text-sm text-gray-500"
+                        className="flex items-start gap-2 text-sm text-gray-400"
                       >
                         <FaCheck className="text-[#FFD700] text-xs mt-1" />
                         <span>{feature}</span>
@@ -454,11 +441,11 @@ const innovate = async () => {
       </section>
 
       {/* Featured Project */}
-      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-24 bg-gradient-to-b from-gray-900 to-black">
+      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-24 bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="lg:w-1/2">
-              <div className="inline-flex items-center gap-2 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-full px-4 py-2 mb-6">
+              <div className="inline-flex items-center gap-2 border border-[#FFD700]/20 rounded-full px-4 py-2 mb-6">
                 <FaRocket className="text-[#FFD700]" />
                 <span className="text-[#FFD700] text-sm">Featured Project</span>
               </div>
@@ -485,7 +472,7 @@ const innovate = async () => {
               </div>
               <button
                 onClick={() => (window.location.href = "/portfolio")}
-                className="bg-[#FFD700] text-black px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg hover:shadow-[#FFD700]/20 hover:-translate-y-1 transition-all duration-300"
+                className="bg-[#FFD700] text-black px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#FFD700]/90 transition-all duration-300"
               >
                 View Case Study
               </button>
@@ -505,7 +492,7 @@ const innovate = async () => {
       <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-full px-4 py-2 mb-4">
+            <div className="inline-flex items-center gap-2 border border-[#FFD700]/20 rounded-full px-4 py-2 mb-4">
               <FaUsers className="text-[#FFD700]" />
               <span className="text-[#FFD700] text-sm">Client Stories</span>
             </div>
@@ -537,7 +524,7 @@ const innovate = async () => {
             >
               {testimonials.map((testimonial) => (
                 <SwiperSlide key={testimonial.id}>
-                  <div className="bg-gradient-to-br from-gray-900 to-black p-8 rounded-2xl border border-[#FFD700]/20 h-full">
+                  <div className="bg-gray-900 p-8 rounded-2xl border border-[#FFD700]/20 h-full">
                     <div className="flex items-center gap-2 mb-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <FaStar key={i} className="text-[#FFD700]" />
@@ -573,10 +560,7 @@ const innovate = async () => {
       </section>
 
       {/* Contact CTA Section */}
-      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-24 relative overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700]/10 to-transparent"></div>
-
+      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-24 bg-gray-900 relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -591,7 +575,7 @@ const innovate = async () => {
                 onClick={() =>
                   window.open("https://wa.me/1234567890", "_blank")
                 }
-                className="bg-[#25D366] text-white px-8 py-4 rounded-xl font-semibold text-lg flex items-center justify-center gap-3 hover:shadow-lg hover:shadow-[#25D366]/20 hover:-translate-y-1 transition-all duration-300"
+                className="bg-[#FFD700] text-black px-8 py-4 rounded-xl font-semibold text-lg flex items-center justify-center gap-3 hover:bg-[#FFD700]/90 transition-all duration-300"
               >
                 <FaWhatsapp className="text-xl" />
                 Chat on WhatsApp
@@ -599,8 +583,9 @@ const innovate = async () => {
 
               <button
                 onClick={() => (window.location.href = "/contact")}
-                className="border border-[#FFD700]/20 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#FFD700]/10 hover:border-[#FFD700]/40 transition-all duration-300"
+                className="bg-transparent border border-[#FFD700] text-[#FFD700] px-8 py-4 rounded-xl font-semibold text-lg flex items-center justify-center gap-3 hover:bg-[#FFD700]/10 transition-all duration-300"
               >
+                <FaEnvelope className="text-xl" />
                 Send an Email
               </button>
             </div>

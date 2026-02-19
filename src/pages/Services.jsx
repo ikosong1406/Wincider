@@ -116,10 +116,9 @@ const Services = () => {
       id: 1,
       name: "Full Stack Development",
       icon: <FaCode />,
-      gradient: "from-blue-500 to-cyan-500",
-      textColor: "text-blue-400",
-      bgColor: "bg-blue-500/10",
-      borderColor: "border-blue-500/20",
+      textColor: "text-[#FFD700]",
+      bgColor: "bg-[#FFD700]/10",
+      borderColor: "border-[#FFD700]/20",
       iconArray: [
         <FaReact />,
         <FaNodeJs />,
@@ -164,10 +163,9 @@ const Services = () => {
       id: 2,
       name: "Mobile Development",
       icon: <FaMobile />,
-      gradient: "from-purple-500 to-pink-500",
-      textColor: "text-purple-400",
-      bgColor: "bg-purple-500/10",
-      borderColor: "border-purple-500/20",
+      textColor: "text-[#FFD700]",
+      bgColor: "bg-[#FFD700]/10",
+      borderColor: "border-[#FFD700]/20",
       iconArray: [
         <SiFlutter />,
         <SiSwift />,
@@ -212,10 +210,9 @@ const Services = () => {
       id: 3,
       name: "UI/UX Design",
       icon: <RiPaletteLine />,
-      gradient: "from-orange-500 to-red-500",
-      textColor: "text-orange-400",
-      bgColor: "bg-orange-500/10",
-      borderColor: "border-orange-500/20",
+      textColor: "text-[#FFD700]",
+      bgColor: "bg-[#FFD700]/10",
+      borderColor: "border-[#FFD700]/20",
       iconArray: [
         <FaFigma />,
         <SiAdobexd />,
@@ -260,10 +257,9 @@ const Services = () => {
       id: 4,
       name: "DevOps & Cloud",
       icon: <FaCloud />,
-      gradient: "from-cyan-500 to-teal-500",
-      textColor: "text-cyan-400",
-      bgColor: "bg-cyan-500/10",
-      borderColor: "border-cyan-500/20",
+      textColor: "text-[#FFD700]",
+      bgColor: "bg-[#FFD700]/10",
+      borderColor: "border-[#FFD700]/20",
       iconArray: [
         <FaAws />,
         <SiGooglecloud />,
@@ -308,10 +304,9 @@ const Services = () => {
       id: 5,
       name: "Cybersecurity",
       icon: <FaShieldAlt />,
-      gradient: "from-emerald-500 to-green-500",
-      textColor: "text-emerald-400",
-      bgColor: "bg-emerald-500/10",
-      borderColor: "border-emerald-500/20",
+      textColor: "text-[#FFD700]",
+      bgColor: "bg-[#FFD700]/10",
+      borderColor: "border-[#FFD700]/20",
       iconArray: [
         <FaShieldAlt />,
         <FaServer />,
@@ -356,10 +351,9 @@ const Services = () => {
       id: 6,
       name: "MVP Development",
       icon: <FaRocket />,
-      gradient: "from-yellow-500 to-amber-500",
-      textColor: "text-yellow-400",
-      bgColor: "bg-yellow-500/10",
-      borderColor: "border-yellow-500/20",
+      textColor: "text-[#FFD700]",
+      bgColor: "bg-[#FFD700]/10",
+      borderColor: "border-[#FFD700]/20",
       iconArray: [
         <FaRocket />,
         <FaCode />,
@@ -405,7 +399,7 @@ const Services = () => {
   return (
     <div className="bg-black min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-black to-gray-900 hero-section fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 md:py-20 border-b border-[#FFD700]/20">
+      <section className="bg-black hero-section fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 md:py-20 border-b border-[#FFD700]/20">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
@@ -453,17 +447,12 @@ const Services = () => {
 
           {/* Service Details Card */}
           <div className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out">
-            <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden border border-[#FFD700]/20">
+            <div className="bg-gray-900 rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden border border-[#FFD700]/20">
               {/* Mobile: Icon Grid First */}
               <div className="lg:hidden">
-                <div className="relative bg-gradient-to-br from-gray-900 to-black p-6 flex items-center justify-center border-b border-[#FFD700]/20">
-                  {/* Background gradient overlay */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${currentService.gradient} opacity-5`}
-                  ></div>
-
+                <div className="bg-black p-6 flex items-center justify-center border-b border-[#FFD700]/20">
                   {/* Icon Grid - Smaller for mobile */}
-                  <div className="relative z-10 grid grid-cols-3 gap-3 w-full max-w-sm">
+                  <div className="grid grid-cols-3 gap-3 w-full max-w-sm">
                     {currentService.iconArray.slice(0, 6).map((icon, index) => (
                       <div
                         key={index}
@@ -482,14 +471,9 @@ const Services = () => {
 
               <div className="lg:flex">
                 {/* Left Column - Icon Grid for Desktop */}
-                <div className="hidden lg:block lg:w-2/5 relative bg-gradient-to-br from-gray-900 to-black p-8 flex items-center justify-center">
-                  {/* Background gradient overlay */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${currentService.gradient} opacity-5`}
-                  ></div>
-
+                <div className="hidden lg:block lg:w-2/5 bg-black p-8 flex items-center justify-center border-r border-[#FFD700]/20">
                   {/* Icon Grid */}
-                  <div className="relative z-10 grid grid-cols-2 gap-6 w-full max-w-md">
+                  <div className="grid grid-cols-2 gap-6 w-full max-w-md">
                     {currentService.iconArray.map((icon, index) => (
                       <div
                         key={index}
@@ -532,19 +516,19 @@ const Services = () => {
 
                   {/* Stats Cards - Responsive grid */}
                   <div className="grid grid-cols-3 gap-2 md:gap-3 mb-6 md:mb-8">
-                    <div className="bg-gray-900/50 rounded-lg p-2 md:p-3 border border-[#FFD700]/10">
+                    <div className="bg-black/50 rounded-lg p-2 md:p-3 border border-[#FFD700]/10">
                       <p className="text-xs text-gray-500">Projects</p>
                       <p className="text-base md:text-xl font-bold text-[#FFD700]">
                         {currentService.stats.projects}
                       </p>
                     </div>
-                    <div className="bg-gray-900/50 rounded-lg p-2 md:p-3 border border-[#FFD700]/10">
+                    <div className="bg-black/50 rounded-lg p-2 md:p-3 border border-[#FFD700]/10">
                       <p className="text-xs text-gray-500">Satisfaction</p>
                       <p className="text-base md:text-xl font-bold text-[#FFD700]">
                         {currentService.stats.satisfaction}
                       </p>
                     </div>
-                    <div className="bg-gray-900/50 rounded-lg p-2 md:p-3 border border-[#FFD700]/10">
+                    <div className="bg-black/50 rounded-lg p-2 md:p-3 border border-[#FFD700]/10">
                       <p className="text-xs text-gray-500">Delivery</p>
                       <p className="text-base md:text-xl font-bold text-[#FFD700]">
                         {currentService.stats.delivery}
@@ -554,13 +538,13 @@ const Services = () => {
 
                   {/* Info Cards - Wrap on mobile */}
                   <div className="flex flex-wrap gap-2 md:gap-4 mb-6 md:mb-8">
-                    <div className="flex items-center gap-1 md:gap-2 bg-gray-900/50 px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-[#FFD700]/10">
+                    <div className="flex items-center gap-1 md:gap-2 bg-black/50 px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-[#FFD700]/10">
                       <FaClock className="text-[#FFD700] text-xs md:text-sm" />
                       <span className="text-xs md:text-sm text-gray-300">
                         {currentService.duration}
                       </span>
                     </div>
-                    <div className="flex items-center gap-1 md:gap-2 bg-gray-900/50 px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-[#FFD700]/10">
+                    <div className="flex items-center gap-1 md:gap-2 bg-black/50 px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-[#FFD700]/10">
                       <FaUsers className="text-[#FFD700] text-xs md:text-sm" />
                       <span className="text-xs md:text-sm text-gray-300">
                         Dedicated Team
@@ -641,7 +625,7 @@ const Services = () => {
                         .toLowerCase()
                         .replace(/ /g, "-")}`;
                     }}
-                    className="w-full bg-gradient-to-r from-[#FFD700] to-[#DAA520] text-black px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-base md:text-lg flex items-center justify-center gap-2 md:gap-3 hover:shadow-lg hover:shadow-[#FFD700]/20 hover:-translate-y-1 transition-all duration-300 group"
+                    className="w-full bg-[#FFD700] text-black px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-base md:text-lg flex items-center justify-center gap-2 md:gap-3 hover:bg-[#FFD700]/90 transition-all duration-300 group"
                   >
                     <span>Start Your Project</span>
                     <FaArrowRight className="text-sm md:text-base group-hover:translate-x-1 transition-transform" />

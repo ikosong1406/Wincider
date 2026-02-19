@@ -58,7 +58,7 @@ export default function Footer() {
             </p>
 
             {/* Contact Info with Gold Accents */}
-            <div className="space-y-4 mb-8">
+            {/* <div className="space-y-4 mb-8">
               <div className="flex items-center gap-3 group">
                 <div className="w-8 h-8 rounded-lg bg-[#FFD700]/10 flex items-center justify-center border border-[#FFD700]/20 group-hover:bg-[#FFD700]/20 transition-colors">
                   <FiPhone className="w-4 h-4 text-[#FFD700]" />
@@ -71,7 +71,7 @@ export default function Footer() {
                 </div>
                 <span className="text-gray-400">hello@wincider.tech</span>
               </div>
-            </div>
+            </div> */}
 
             {/* Tech Stack Pills */}
             <div className="mb-8 flex flex-wrap gap-2">

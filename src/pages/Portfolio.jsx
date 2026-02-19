@@ -1,17 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  FaSearch,
-  FaFilter,
-  FaInstagram,
-  FaHeart,
-  FaExpand,
-} from "react-icons/fa";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Thumbs, FreeMode } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/thumbs";
-import "swiper/css/free-mode";
+import { FaHeart, FaExpand } from "react-icons/fa";
 
 // Sample images - replace with actual imports
 const portfolioImages = [
@@ -110,7 +98,7 @@ const Portfolio = () => {
       {
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px",
-      }
+      },
     );
 
     document.querySelectorAll(".fade-in-section").forEach((section) => {
@@ -126,7 +114,7 @@ const Portfolio = () => {
       image.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       image.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
       image.tags.some((tag) =>
-        tag.toLowerCase().includes(searchTerm.toLowerCase())
+        tag.toLowerCase().includes(searchTerm.toLowerCase()),
       );
     return matchesCategory && matchesSearch;
   });

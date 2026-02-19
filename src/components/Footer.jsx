@@ -54,9 +54,7 @@ export default function Footer() {
             </Link>
 
             <p className="mb-8 text-gray-400 leading-relaxed">
-              Empowering businesses through cutting-edge technology solutions.
-              From cloud infrastructure to AI-driven analytics, we transform
-              complex challenges into seamless digital experiences.
+              Empowering businesses through cutting edge technology solutions.
             </p>
 
             {/* Contact Info with Gold Accents */}
@@ -126,32 +124,6 @@ export default function Footer() {
               © {new Date().getFullYear()} Wincider Technologies. All rights
               reserved.
             </p>
-            <div className="flex gap-8 text-sm">
-              <Link
-                to="/privacy"
-                className="text-gray-500 hover:text-[#FFD700] transition-colors"
-              >
-                Privacy
-              </Link>
-              <Link
-                to="/terms"
-                className="text-gray-500 hover:text-[#FFD700] transition-colors"
-              >
-                Terms
-              </Link>
-              <Link
-                to="/cookies"
-                className="text-gray-500 hover:text-[#FFD700] transition-colors"
-              >
-                Cookies
-              </Link>
-              <Link
-                to="/sitemap"
-                className="text-gray-500 hover:text-[#FFD700] transition-colors"
-              >
-                Sitemap
-              </Link>
-            </div>
           </div>
         </div>
       </div>

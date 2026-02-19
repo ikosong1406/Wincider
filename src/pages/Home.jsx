@@ -8,20 +8,30 @@ import {
   FaCheck,
   FaStar,
   FaWhatsapp,
-  FaInstagram,
-  FaCalendarAlt,
+  FaCode,
+  FaMobile,
+  FaCloud,
+  FaShieldAlt,
+  FaRocket,
   FaUsers,
   FaAward,
   FaQuoteLeft,
+  FaArrowRight,
+  FaChartLine,
+  FaCogs,
+  FaServer,
 } from "react-icons/fa";
-import { FiArrowRight } from "react-icons/fi";
-import img1 from "../assets/img1.png";
-import img2 from "../assets/img2.png";
-import img3 from "../assets/img3.png";
-import img4 from "../assets/img4.png";
-import bridal from "../assets/bridal.jpg";
-import event from "../assets/event.jpg";
-import photoshoot from "../assets/photoshot.jpg";
+import { RiFlashlightLine, RiCodeBoxLine } from "react-icons/ri";
+
+// Tech-themed placeholder images (using Unsplash tech-related images)
+const techHero =
+  "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80";
+const techTeam =
+  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80";
+const techOffice =
+  "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80";
+const techDashboard =
+  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80";
 
 const Home = () => {
   useEffect(() => {
@@ -37,7 +47,7 @@ const Home = () => {
       {
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px",
-      }
+      },
     );
 
     document.querySelectorAll(".fade-in-section").forEach((section) => {
@@ -50,157 +60,252 @@ const Home = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Sarah Johnson",
-      role: "Bride",
+      name: "David Chen",
+      role: "CTO, Global Finance Corp",
       comment:
-        "Absolutely stunning bridal makeup! The team made me feel like a princess on my special day. Highly recommend!",
+        "Wincider Tech delivered an exceptional financial dashboard that transformed how we monitor our investments. Their attention to detail and technical expertise is outstanding.",
+      rating: 5,
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+    },
+    {
+      id: 2,
+      name: "Sarah Williams",
+      role: "Product Manager, HealthPlus",
+      comment:
+        "The telemedicine app they built for us exceeded all expectations. Our patients love it, and it's helped us expand our reach significantly.",
       rating: 5,
       image:
         "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
     },
     {
-      id: 2,
-      name: "Emily Chen",
-      role: "Event Attendee",
+      id: 3,
+      name: "Michael Rodriguez",
+      role: "Founder, Green Future Initiative",
       comment:
-        "Professional service with incredible attention to detail. My makeup lasted all night and looked perfect in photos!",
+        "Working with Wincider was a game-changer. They understood our sustainability mission and built a platform that truly makes a difference.",
+      rating: 5,
+      image:
+        "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+    },
+    {
+      id: 4,
+      name: "Jennifer Lee",
+      role: "Director of Operations, RetailTech",
+      comment:
+        "Their AI-powered inventory system has revolutionized our supply chain. We've seen dramatic improvements in efficiency and cost savings.",
       rating: 5,
       image:
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-    },
-    {
-      id: 3,
-      name: "Michelle Rodriguez",
-      role: "Model",
-      comment:
-        "The photoshoot makeup was exactly what we needed. The artist understood the lighting requirements perfectly.",
-      rating: 5,
-      image:
-        "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
     },
   ];
 
   const reasons = [
     {
       id: 1,
-      icon: <FaUsers />,
-      title: "Expert Team",
-      description: "Certified makeup artists with 5+ years experience",
+      icon: <FaCode />,
+      title: "Expert Developers",
+      description: "Senior-level engineers with 7+ years average experience",
     },
     {
       id: 2,
-      icon: <FaAward />,
-      title: "Premium Products",
-      description: "Using only high-end, hypoallergenic cosmetics",
+      icon: <FaRocket />,
+      title: "Agile Methodology",
+      description: "Fast iterations, continuous delivery, and regular updates",
     },
     {
       id: 3,
-      icon: <FaCheck />,
-      title: "Custom Looks",
-      description: "Personalized makeup tailored to your features",
+      icon: <FaShieldAlt />,
+      title: "Security First",
+      description: "Enterprise-grade security in every project we build",
     },
     {
       id: 4,
-      icon: <FaCalendarAlt />,
-      title: "Flexible Booking",
-      description: "Available for last-minute appointments",
+      icon: <FaChartLine />,
+      title: "Proven Results",
+      description: "Data-driven solutions that deliver measurable ROI",
     },
   ];
 
   const services = [
     {
       id: 1,
-      name: "Bridal Makeup",
-      subServices: [
-        "Bespoke bridal consultation",
-        "luxury skin prep and complextion perfection",
-        "HD / Soft Glam / Rdadient bridal finish",
-        "False lashes included",
-        "Touch-up on request",
-        "Calm, Professional Bridal experience",
+      name: "Full Stack Development",
+      icon: <FaCode />,
+      description: "End-to-end web applications with modern architectures",
+      features: [
+        "Custom web application development",
+        "RESTful API design & implementation",
+        "Database design & optimization",
+        "Real-time features",
       ],
-      image: bridal,
+      gradient: "from-blue-500 to-cyan-500",
     },
     {
       id: 2,
-      name: "Event Makeup",
-      subServices: [
-        "Soft Glam",
-        "Full Glam",
-        "Neutral Elegance",
-        "Radient / dewy Looks",
-        "Evening Glam",
+      name: "Mobile Development",
+      icon: <FaMobile />,
+      description: "Native and cross-platform mobile apps for iOS & Android",
+      features: [
+        "Cross-platform or native development",
+        "App store deployment",
+        "Push notifications",
+        "Offline functionality",
       ],
-      image: event,
+      gradient: "from-purple-500 to-pink-500",
     },
     {
       id: 3,
-      name: "Photoshoot Makeup",
-      subServices: [
-        "Editorial Shoot",
-        "Branding Shoot",
-        "Fashion Campaigns",
-        "Content Creators and Influencers",
+      name: "DevOps & Cloud",
+      icon: <FaCloud />,
+      description: "Scalable infrastructure and automated deployment",
+      features: [
+        "Cloud infrastructure (AWS/Azure/GCP)",
+        "CI/CD pipeline setup",
+        "Container orchestration",
+        "24/7 monitoring",
       ],
-      image: photoshoot,
+      gradient: "from-cyan-500 to-teal-500",
+    },
+    {
+      id: 4,
+      name: "MVP Development",
+      icon: <FaRocket />,
+      description: "Rapid development to validate your business idea",
+      features: [
+        "Product strategy workshop",
+        "Core feature development",
+        "User testing",
+        "Investor-ready demo",
+      ],
+      gradient: "from-yellow-500 to-amber-500",
     },
   ];
 
+  const stats = [
+    { value: "50+", label: "Projects Delivered" },
+    { value: "98%", label: "Client Satisfaction" },
+    { value: "7+", label: "Years Experience" },
+    { value: "24/7", label: "Support Available" },
+  ];
+
+  const partners = [
+    { name: "TechCorp", logo: "T" },
+    { name: "InnovateLabs", logo: "I" },
+    { name: "FutureFund", logo: "F" },
+    { name: "CloudScale", logo: "C" },
+  ];
+
   return (
-    <div>
-      {/* Hero Section - Image on Left, Write-up on Right */}
-      <section className="bg-[#ffda93] hero-section fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out">
-        <div className="container mx-auto px-4 py-16 md:py-24">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-            {/* Write-up Part - Right Side */}
-            <div className="lg:w-1/2 lg:pl-8">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#333333] leading-tight mb-6">
-                Enhance Your Natural Beauty with Our Expert Makeup Services
+    <div className="bg-black">
+      {/* Hero Section - Modern Tech Company */}
+      <section className="relative bg-gradient-to-br from-black via-gray-900 to-black hero-section fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-[#FFD700] rounded-full filter blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#FFD700] rounded-full filter blur-3xl opacity-10"></div>
+        </div>
+
+        <div className="container mx-auto px-4 py-20 md:py-32 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            {/* Left Content */}
+            <div className="lg:w-1/2">
+              <div className="inline-flex items-center gap-2 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-full px-4 py-2 mb-8">
+                <RiFlashlightLine className="text-[#FFD700]" />
+                <span className="text-[#FFD700] text-sm">
+                  Innovation Driven Excellence
+                </span>
+              </div>
+
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+                Building <span className="text-[#FFD700]">Digital</span>
+                <br />
+                Solutions That Matter
               </h1>
 
-              <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
-                Professional makeup artistry for your most special moments. We
-                create stunning looks that highlight your unique features and
-                bring out your inner confidence.
+              <p className="text-xl text-gray-400 mb-8 leading-relaxed max-w-2xl">
+                We transform complex challenges into seamless digital
+                experiences. From startups to enterprises, we deliver
+                cutting-edge technology solutions that drive real business
+                growth.
               </p>
 
-              <button
-                onClick={() => (window.location.href = "/contact")}
-                className="bg-[#b9a281] text-white px-8 py-4 rounded-xl font-semibold text-lg flex items-center gap-3 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 mb-10"
-              >
-                Book Your Session
-                <FiArrowRight className="text-xl" />
-              </button>
+              {/* CTA Buttons */}
+              <div className="flex flex-wrap gap-4 mb-12">
+                <button
+                  onClick={() => (window.location.href = "/contact")}
+                  className="bg-[#FFD700] text-black px-8 py-4 rounded-xl font-semibold text-lg flex items-center gap-3 hover:shadow-lg hover:shadow-[#FFD700]/20 hover:-translate-y-1 transition-all duration-300"
+                >
+                  Start Your Project
+                  <FaArrowRight />
+                </button>
+                <button
+                  onClick={() => (window.location.href = "/portfolio")}
+                  className="border border-[#FFD700]/20 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#FFD700]/10 hover:border-[#FFD700]/40 transition-all duration-300"
+                >
+                  View Our Work
+                </button>
+              </div>
+
+              {/* Partner Logos */}
+              <div className="flex items-center gap-8">
+                {partners.map((partner, index) => (
+                  <div
+                    key={index}
+                    className="text-gray-500 text-2xl font-bold opacity-50 hover:opacity-100 transition-opacity"
+                  >
+                    {partner.logo}
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Image Part - Left Side */}
+            {/* Right Content - Code Visualization */}
             <div className="lg:w-1/2 relative">
-              <div className="relative overflow-hidden">
-                <img
-                  src={img1}
-                  alt="Makeup Studio"
-                  className="w-full h-[430px] md:w-[350px] md:h-[480px] object-cover hover:scale-105 transition-transform duration-500"
-                />
+              <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-3xl border border-[#FFD700]/20 p-8">
+                <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#FFD700]/10 rounded-full blur-2xl"></div>
+                <pre className="text-sm text-gray-400 overflow-x-auto">
+                  <code>
+                    {`// Your next big idea starts here
+const innovate = async () => {
+  const solution = await WinciderTech.build({
+    vision: "Your vision",
+    technology: "Cutting-edge",
+    timeline: "Agile",
+    results: "Exceptional"
+  });
+  
+  return solution.ready();
+};`}
+                  </code>
+                </pre>
               </div>
 
-              {/* Caption near image */}
-              <div className="absolute -bottom-6 -left-15 bg-white/95 backdrop-blur-sm p-5 rounded-xl shadow-xl border-l-4 border-[#b9a281] max-w-[220px]">
-                <h3 className="text-lg font-semibold text-gray-800 mb-1">
-                  Professional Artists
-                </h3>
-                <p className="text-sm text-gray-600">
-                  Certified makeup specialists
-                </p>
+              {/* Floating Stats */}
+              <div className="absolute -bottom-6 -left-6 bg-black border border-[#FFD700]/20 p-5 rounded-xl backdrop-blur-sm">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-[#FFD700]/10 rounded-lg flex items-center justify-center">
+                    <FaRocket className="text-[#FFD700]" />
+                  </div>
+                  <div>
+                    <p className="text-white font-bold">50+ Projects</p>
+                    <p className="text-gray-400 text-sm">
+                      Successfully delivered
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              {/* Caption far right */}
-              <div className="absolute -top-6 -right-15 md:-right-5 bg-white/95 backdrop-blur-sm p-5 rounded-xl shadow-xl border-l-4 border-[#b9a281] max-w-[220px]">
-                <h3 className="text-lg font-semibold text-gray-800 mb-1">
-                  5+ Years Experience
-                </h3>
-                <p className="text-sm text-gray-600">
-                  Serving satisfied clients
-                </p>
+              <div className="absolute -top-6 -right-6 bg-black border border-[#FFD700]/20 p-5 rounded-xl backdrop-blur-sm">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-[#FFD700]/10 rounded-lg flex items-center justify-center">
+                    <FaUsers className="text-[#FFD700]" />
+                  </div>
+                  <div>
+                    <p className="text-white font-bold">98% Clients</p>
+                    <p className="text-gray-400 text-sm">Would recommend us</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -208,47 +313,62 @@ const Home = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 md:py-24">
+      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-24">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-            {/* Write-up Part */}
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            {/* Left - Image */}
+            <div className="lg:w-1/2 relative">
+              <div className="relative z-10">
+                <img
+                  src={techTeam}
+                  alt="Wincider Tech Team"
+                  className="w-full h-[500px] object-cover rounded-3xl border border-[#FFD700]/20"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent rounded-3xl"></div>
+              </div>
+
+              {/* Experience Badge */}
+              <div className="absolute -bottom-6 -right-6 bg-black border border-[#FFD700]/20 p-6 rounded-2xl backdrop-blur-sm z-20">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-[#FFD700]">7+</div>
+                  <div className="text-gray-400">Years of Excellence</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right - Content */}
             <div className="lg:w-1/2">
-              <h4 className="text-base font-semibold text-[#ffda9e] mb-2">
-                ENTER AS STRANGERS, LEAVE AS FRIENDS
-              </h4>
-              <h2 className="text-3xl md:text-5xl font-bold text-[#b9a281] mb-6">
-                Hello Gorgoeus!
+              <div className="inline-flex items-center gap-2 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-full px-4 py-2 mb-6">
+                <RiCodeBoxLine className="text-[#FFD700]" />
+                <span className="text-[#FFD700] text-sm">Why Choose Us</span>
+              </div>
+
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                We Don't Just Write Code,
+                <br />
+                <span className="text-[#FFD700]">We Build Solutions</span>
               </h2>
-              <p className="text-lg text-[#b9a281] mb-8">
-                We believe every face tells a story. Our mission is to enhance
-                your natural beauty with expert techniques and premium products.
+
+              <p className="text-lg text-gray-400 mb-8">
+                Our team combines technical expertise with business acumen to
+                deliver solutions that not only work flawlessly but also drive
+                real value for your organization.
               </p>
 
               <div className="space-y-6">
                 {reasons.map((reason) => (
-                  <div key={reason.id} className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-pink-100 to-purple-100 rounded-xl flex items-center justify-center text-[#333333] text-xl flex-shrink-0">
+                  <div key={reason.id} className="flex items-start gap-4 group">
+                    <div className="w-14 h-14 bg-[#FFD700]/10 rounded-xl border border-[#FFD700]/20 flex items-center justify-center text-[#FFD700] text-xl group-hover:scale-110 transition-transform">
                       {reason.icon}
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-[#ffda9e] mb-2">
+                      <h3 className="text-xl font-semibold text-white mb-2">
                         {reason.title}
                       </h3>
-                      <p className="text-[#b9a281]">{reason.description}</p>
+                      <p className="text-gray-400">{reason.description}</p>
                     </div>
                   </div>
                 ))}
-              </div>
-            </div>
-
-            {/* Image Part */}
-            <div className="lg:w-1/2">
-              <div className="bg-gradient-to-br from-pink-100 to-purple-100 p-8 rounded-2xl">
-                <img
-                  src={img2}
-                  alt="Makeup Studio Work"
-                  className="w-full h-[400px] object-cover"
-                />
               </div>
             </div>
           </div>
@@ -256,61 +376,48 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="bg-[#b9a281] fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 md:py-24">
+      <section className="bg-gradient-to-b from-black to-gray-900 fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-24 border-y border-[#FFD700]/20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#333333] mb-4">
-              Treatment of Makeup
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-full px-4 py-2 mb-4">
+              <FaCogs className="text-[#FFD700]" />
+              <span className="text-[#FFD700] text-sm">What We Offer</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Comprehensive Tech Solutions
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Specialized makeup services for every occasion
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              From concept to deployment, we provide end-to-end services
+              tailored to your needs
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service) => (
               <div
                 key={service.id}
-                className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                className="group bg-gradient-to-br from-gray-900 to-black rounded-2xl border border-[#FFD700]/20 hover:border-[#FFD700]/40 transition-all duration-300 overflow-hidden"
               >
-                {/* Image with overlay */}
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={service.image}
-                    alt={service.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-100 transition-opacity duration-300 flex items-end">
-                    <div className="p-6 w-full text-center">
-                      <h3 className="text-2xl font-bold text-white mb-4">
-                        {service.name}
-                      </h3>
-                      <button
-                        onClick={() => (window.location.href = "/contact")}
-                        className="bg-white text-[#333333] px-6 py-2 rounded-full font-semibold hover:bg-pink-50 transition-colors duration-300"
-                      >
-                        Book Now
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Service details */}
                 <div className="p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <h3 className="text-xl font-bold text-[#333333]">
-                      {service.name}
-                    </h3>
+                  <div
+                    className={`w-14 h-14 bg-gradient-to-br ${service.gradient} rounded-xl flex items-center justify-center text-white text-2xl mb-4 group-hover:scale-110 transition-transform`}
+                  >
+                    {service.icon}
                   </div>
-
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    {service.name}
+                  </h3>
+                  <p className="text-gray-400 text-sm mb-4">
+                    {service.description}
+                  </p>
                   <ul className="space-y-2">
-                    {service.subServices.map((sub, index) => (
+                    {service.features.map((feature, idx) => (
                       <li
-                        key={index}
-                        className="flex items-center text-gray-600"
+                        key={idx}
+                        className="flex items-start gap-2 text-sm text-gray-500"
                       >
-                        <span className="text-[#333333] mr-2">•</span>
-                        {sub}
+                        <FaCheck className="text-[#FFD700] text-xs mt-1" />
+                        <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -318,64 +425,95 @@ const Home = () => {
               </div>
             ))}
           </div>
+
+          <div className="text-center mt-12">
+            <button
+              onClick={() => (window.location.href = "/services")}
+              className="inline-flex items-center gap-2 text-[#FFD700] hover:gap-3 transition-all"
+            >
+              View All Services <FaArrowRight />
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 md:py-24">
+      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-24">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-            {/* Image Part */}
-            <div className="lg:w-1/2">
-              <img
-                src={img3}
-                alt="Makeup Studio Experience"
-                className="w-full h-[400px] object-cover"
-              />
-            </div>
-
-            {/* Write-up Part */}
-            <div className="lg:w-1/2">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#b9a281] mb-6">
-                Years of Excellence in Beauty
-              </h2>
-              <p className="text-lg text-[#b9a281] mb-8">
-                With over half a decade of experience, we've perfected the art
-                of makeup application for every skin type and occasion.
-              </p>
-
-              <div className="grid grid-cols-2 gap-6">
-                <div className="text-center">
-                  <div className="text-4xl md:text-5xl font-bold text-[#ffda9e] mb-2">
-                    500+
-                  </div>
-                  <div className="text-[#b9a281] font-medium">
-                    Happy Clients
-                  </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center group">
+                <div className="text-5xl font-bold text-[#FFD700] mb-2 group-hover:scale-110 transition-transform">
+                  {stat.value}
                 </div>
-                <div className="text-center">
-                  <div className="text-4xl md:text-5xl font-bold text-[#ffda9e] mb-2">
-                    5+
-                  </div>
-                  <div className="text-[#b9a281] font-medium">
-                    Years Experience
-                  </div>
+                <div className="text-gray-400">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Project */}
+      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-24 bg-gradient-to-b from-gray-900 to-black">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="lg:w-1/2">
+              <div className="inline-flex items-center gap-2 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-full px-4 py-2 mb-6">
+                <FaRocket className="text-[#FFD700]" />
+                <span className="text-[#FFD700] text-sm">Featured Project</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                FinTech Dashboard Pro
+              </h2>
+              <p className="text-xl text-gray-400 mb-8">
+                An enterprise-grade financial analytics platform serving 50+
+                investment firms
+              </p>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center gap-4 text-gray-400">
+                  <FaCheck className="text-[#FFD700]" />
+                  <span>Real-time portfolio tracking with live updates</span>
+                </div>
+                <div className="flex items-center gap-4 text-gray-400">
+                  <FaCheck className="text-[#FFD700]" />
+                  <span>Advanced data visualization with custom charts</span>
+                </div>
+                <div className="flex items-center gap-4 text-gray-400">
+                  <FaCheck className="text-[#FFD700]" />
+                  <span>Automated reporting and compliance features</span>
                 </div>
               </div>
+              <button
+                onClick={() => (window.location.href = "/portfolio")}
+                className="bg-[#FFD700] text-black px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg hover:shadow-[#FFD700]/20 hover:-translate-y-1 transition-all duration-300"
+              >
+                View Case Study
+              </button>
+            </div>
+            <div className="lg:w-1/2">
+              <img
+                src={techDashboard}
+                alt="Featured Project"
+                className="w-full rounded-3xl border border-[#FFD700]/20 shadow-2xl"
+              />
             </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 md:py-24">
+      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-24">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#ffda9e] mb-4">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-full px-4 py-2 mb-4">
+              <FaUsers className="text-[#FFD700]" />
+              <span className="text-[#FFD700] text-sm">Client Stories</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               What Our Clients Say
             </h2>
-            <p className="text-lg text-[#b9a281]">
-              Real experiences from our beautiful clients
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Don't just take our word for it - hear from our satisfied clients
             </p>
           </div>
 
@@ -399,20 +537,31 @@ const Home = () => {
             >
               {testimonials.map((testimonial) => (
                 <SwiperSlide key={testimonial.id}>
-                  <div className="bg-[#ffda9e] p-6 rounded-2xl shadow-lg h-full">
-                    <div className="text-[#333333] text-3xl mb-4">
+                  <div className="bg-gradient-to-br from-gray-900 to-black p-8 rounded-2xl border border-[#FFD700]/20 h-full">
+                    <div className="flex items-center gap-2 mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <FaStar key={i} className="text-[#FFD700]" />
+                      ))}
+                    </div>
+                    <div className="text-[#FFD700] text-3xl mb-4 opacity-50">
                       <FaQuoteLeft />
                     </div>
-                    <p className="text-gray-600 mb-6 italic">
+                    <p className="text-gray-300 mb-6 italic">
                       {testimonial.comment}
                     </p>
-
                     <div className="flex items-center gap-4">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-12 h-12 rounded-full object-cover border-2 border-[#FFD700]/20"
+                      />
                       <div>
-                        <h4 className="font-bold text-gray-900">
+                        <h4 className="font-bold text-white">
                           {testimonial.name}
                         </h4>
-                        <p className="text-gray-600">{testimonial.role}</p>
+                        <p className="text-gray-400 text-sm">
+                          {testimonial.role}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -424,70 +573,64 @@ const Home = () => {
       </section>
 
       {/* Contact CTA Section */}
-      <section
-        className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 md:py-24 bg-[#ffda9e]"
-        style={{ borderTopLeftRadius: 70, borderTopRightRadius: 70 }}
-      >
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-            {/* Image Part */}
-            <div className="lg:w-1/2">
-              <img
-                src={img4}
-                alt="Contact Us"
-                className="w-full h-[400px] object-cover rounded-2xl"
-              />
+      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-24 relative overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700]/10 to-transparent"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Ready to Build Something Amazing?
+            </h2>
+            <p className="text-xl text-gray-400 mb-12">
+              Let's discuss your project and turn your vision into reality
+            </p>
+
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <button
+                onClick={() =>
+                  window.open("https://wa.me/1234567890", "_blank")
+                }
+                className="bg-[#25D366] text-white px-8 py-4 rounded-xl font-semibold text-lg flex items-center justify-center gap-3 hover:shadow-lg hover:shadow-[#25D366]/20 hover:-translate-y-1 transition-all duration-300"
+              >
+                <FaWhatsapp className="text-xl" />
+                Chat on WhatsApp
+              </button>
+
+              <button
+                onClick={() => (window.location.href = "/contact")}
+                className="border border-[#FFD700]/20 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#FFD700]/10 hover:border-[#FFD700]/40 transition-all duration-300"
+              >
+                Send an Email
+              </button>
             </div>
 
-            {/* Write-up Part */}
-            <div className="lg:w-1/2">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Ready to Transform Your Look?
-              </h2>
-              <p className="text-lg text-gray-600 mb-8">
-                Book your appointment today and let our experts create your
-                perfect look.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button
-                  onClick={() =>
-                    window.open("https://wa.me/1234567890", "_blank")
-                  }
-                  className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-3 transition-colors duration-300"
-                >
-                  <FaWhatsapp className="text-xl" />
-                  Message on WhatsApp
-                </button>
-
-                <button
-                  onClick={() =>
-                    window.open("https://instagram.com/yourstudio", "_blank")
-                  }
-                  className="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:opacity-90 text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-3 transition-opacity duration-300"
-                >
-                  <FaInstagram className="text-xl" />
-                  Follow on Instagram
-                </button>
-              </div>
-            </div>
+            <p className="text-gray-500 text-sm mt-8">
+              Quick response guaranteed within 2-4 hours
+            </p>
           </div>
         </div>
       </section>
 
       <style jsx>{`
         .fade-in-section {
-          transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+          transition:
+            opacity 0.8s ease-out,
+            transform 0.8s ease-out;
         }
 
-        /* Custom swiper styles */
         :global(.swiper-button-next),
         :global(.swiper-button-prev) {
-          color: #ec4899 !important;
+          color: #ffd700 !important;
+        }
+
+        :global(.swiper-pagination-bullet) {
+          background: #ffd700 !important;
+          opacity: 0.3;
         }
 
         :global(.swiper-pagination-bullet-active) {
-          background: #ec4899 !important;
+          opacity: 1 !important;
         }
       `}</style>
     </div>

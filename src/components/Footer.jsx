@@ -1,101 +1,115 @@
 import { Link } from "react-router-dom";
 import {
-  FiFacebook,
+  FiGithub,
+  FiLinkedin,
   FiTwitter,
-  FiInstagram,
-  FiYoutube,
   FiMail,
   FiPhone,
   FiMapPin,
+  FiGlobe,
+  FiCpu,
 } from "react-icons/fi";
-import { RiPaletteLine } from "react-icons/ri";
+import { RiCodeBoxLine, RiFlashlightLine } from "react-icons/ri";
 
 const footerLinks = {
-  Services: [
-    { name: "Makeup Tutorials", path: "/services#tutorials" },
-    { name: "Beauty Consultation", path: "/services#consultation" },
-    { name: "Custom Kits", path: "/services#custom-kits" },
-    { name: "Events Makeup", path: "/services#events" },
+  Solutions: [
+    { name: "Cloud Services", path: "/services#cloud" },
+    { name: "AI & Machine Learning", path: "/services#ai" },
+    { name: "Cybersecurity", path: "/services#security" },
+    { name: "DevOps Consulting", path: "/services#devops" },
+    { name: "Custom Development", path: "/services#development" },
   ],
-  Company: [
-    { name: "About Us", path: "/about" },
-    { name: "Our Team", path: "/about#team" },
-    { name: "Careers", path: "/about#careers" },
-    { name: "Press", path: "/about#press" },
+  Resources: [
+    { name: "Portfolio", path: "/portfolio" },
+    { name: "Contact", path: "/contact" },
+    { name: " Services", path: "/services" },
   ],
 };
 
 const socialLinks = [
-  { icon: <FiInstagram />, label: "Instagram", color: "hover:text-pink-600" },
-  { icon: <FiFacebook />, label: "Facebook", color: "hover:text-blue-600" },
-  { icon: <FiTwitter />, label: "Twitter", color: "hover:text-sky-500" },
-  { icon: <FiYoutube />, label: "YouTube", color: "hover:text-red-600" },
+  { icon: <FiGithub />, label: "GitHub", color: "hover:text-[#FFD700]" },
+  { icon: <FiLinkedin />, label: "LinkedIn", color: "hover:text-[#FFD700]" },
+  { icon: <FiTwitter />, label: "X (Twitter)", color: "hover:text-[#FFD700]" },
+  { icon: <FiGlobe />, label: "Dev.to", color: "hover:text-[#FFD700]" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-[#B9A281] text-[#333333] mt-auto">
+    <footer className="bg-black text-gray-300 mt-auto border-t border-[#FFD700]/20">
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-          {/* Brand Column */}
-          <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-pink-500 flex items-center justify-center">
-                <RiPaletteLine className="w-7 h-7 text-white" />
-              </div>
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Brand Column - Larger */}
+          <div className="lg:col-span-5">
+            <Link to="/" className="flex items-center gap-3 mb-6 group">
               <div>
-                <h2 className="text-2xl font-bold">Makeup Studio</h2>
+                <h2 className="text-2xl font-bold">
+                  <span className="text-white">Wincider</span>
+                  <span className="text-[#FFD700] ml-1">Tech</span>
+                </h2>
+                <p className="text-xs text-gray-500">
+                  Innovation Driven Excellence
+                </p>
               </div>
             </Link>
-            <p className="mb-6 max-w-md">
-              Discover premium beauty products, expert tutorials, and
-              personalized beauty consultations. Elevate your makeup game with
-              our curated collection.
+
+            <p className="mb-8 text-gray-400 leading-relaxed">
+              Empowering businesses through cutting-edge technology solutions.
+              From cloud infrastructure to AI-driven analytics, we transform
+              complex challenges into seamless digital experiences.
             </p>
 
-            {/* Contact Info */}
-            <div className="space-y-3 mb-6">
-              <div className="flex items-center gap-3">
-                <FiMapPin className="w-5 h-5 text-primary-400" />
-                <span>123 Beauty Street, Los Angeles, CA 90210</span>
+            {/* Contact Info with Gold Accents */}
+            <div className="space-y-4 mb-8">
+              <div className="flex items-center gap-3 group">
+                <div className="w-8 h-8 rounded-lg bg-[#FFD700]/10 flex items-center justify-center border border-[#FFD700]/20 group-hover:bg-[#FFD700]/20 transition-colors">
+                  <FiPhone className="w-4 h-4 text-[#FFD700]" />
+                </div>
+                <span className="text-gray-400">+44 123 456 7890</span>
               </div>
-              <div className="flex items-center gap-3">
-                <FiPhone className="w-5 h-5 text-primary-400" />
-                <span>+1 (555) 123-4567</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <FiMail className="w-5 h-5 text-primary-400" />
-                <span>hello@makeupstudio.com</span>
+              <div className="flex items-center gap-3 group">
+                <div className="w-8 h-8 rounded-lg bg-[#FFD700]/10 flex items-center justify-center border border-[#FFD700]/20 group-hover:bg-[#FFD700]/20 transition-colors">
+                  <FiMail className="w-4 h-4 text-[#FFD700]" />
+                </div>
+                <span className="text-gray-400">hello@wincider.tech</span>
               </div>
             </div>
 
-            {/* Social Links */}
-            <div className="flex gap-4">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className={`w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center transition-colors ${social.color} hover:bg-gray-700`}
-                  aria-label={social.label}
-                >
-                  <span className="text-xl text-white">{social.icon}</span>
-                </a>
-              ))}
+            {/* Tech Stack Pills */}
+            <div className="mb-8 flex flex-wrap gap-2">
+              <span className="px-3 py-1 bg-[#FFD700]/5 border border-[#FFD700]/20 rounded-full text-xs text-[#FFD700]">
+                Cloud Native
+              </span>
+              <span className="px-3 py-1 bg-[#FFD700]/5 border border-[#FFD700]/20 rounded-full text-xs text-[#FFD700]">
+                AI/ML
+              </span>
+              <span className="px-3 py-1 bg-[#FFD700]/5 border border-[#FFD700]/20 rounded-full text-xs text-[#FFD700]">
+                DevOps
+              </span>
+              <span className="px-3 py-1 bg-[#FFD700]/5 border border-[#FFD700]/20 rounded-full text-xs text-[#FFD700]">
+                Blockchain
+              </span>
+              <span className="px-3 py-1 bg-[#FFD700]/5 border border-[#FFD700]/20 rounded-full text-xs text-[#FFD700]">
+                IoT
+              </span>
             </div>
           </div>
 
           {/* Navigation Columns */}
           {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
-              <h3 className="text-lg font-bold mb-4 text-white">{category}</h3>
+            <div key={category} className="lg:col-span-2">
+              <h3 className="text-lg font-bold mb-6 text-white relative inline-block">
+                {category}
+                <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-[#FFD700] rounded-full"></span>
+              </h3>
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.path}
-                      className="hover:text-primary-400 transition-colors"
+                      className="text-gray-400 hover:text-[#FFD700] transition-colors flex items-center gap-2 group"
                     >
+                      <span className="w-1 h-1 bg-[#FFD700] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                       {link.name}
                     </Link>
                   </li>
@@ -106,26 +120,36 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 pt-8 border-t border-gray-700">
+        <div className="mt-16 pt-8 border-t border-[#FFD700]/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm">
-              © {new Date().getFullYear()} Makeup Studio. All rights reserved.
+            <p className="text-sm text-gray-500">
+              © {new Date().getFullYear()} Wincider Technologies. All rights
+              reserved.
             </p>
-            <div className="flex gap-6 text-sm">
+            <div className="flex gap-8 text-sm">
               <Link
                 to="/privacy"
-                className="hover:text-white transition-colors"
+                className="text-gray-500 hover:text-[#FFD700] transition-colors"
               >
-                Privacy Policy
+                Privacy
               </Link>
-              <Link to="/terms" className="hover:text-white transition-colors">
-                Terms of Service
+              <Link
+                to="/terms"
+                className="text-gray-500 hover:text-[#FFD700] transition-colors"
+              >
+                Terms
               </Link>
               <Link
                 to="/cookies"
-                className="hover:text-white transition-colors"
+                className="text-gray-500 hover:text-[#FFD700] transition-colors"
               >
-                Cookie Policy
+                Cookies
+              </Link>
+              <Link
+                to="/sitemap"
+                className="text-gray-500 hover:text-[#FFD700] transition-colors"
+              >
+                Sitemap
               </Link>
             </div>
           </div>

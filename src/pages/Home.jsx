@@ -476,7 +476,7 @@ func innovate() *Solution {
                 className="group bg-black/90 rounded-2xl border border-[#FFD700]/20 hover:border-[#FFD700]/40 transition-all duration-300 overflow-hidden backdrop-blur-sm"
               >
                 <div className="p-4 md:p-6">
-                  <div className="w-10 h-10 md:w-14 md:h-14 bg-[#FFD700]/10 rounded-xl flex items-center justify-center text-[#FFD700] text-lg md:text-2xl mb-3 md:mb-4 group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 md:w-14 md:h-14 bg-blue-300/5 rounded-xl flex items-center justify-center text-blue-300 text-lg md:text-2xl mb-3 md:mb-4 group-hover:scale-110 transition-transform">
                     {service.icon}
                   </div>
                   <h3 className="text-base md:text-xl font-bold text-white mb-1 md:mb-2">

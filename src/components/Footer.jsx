@@ -26,7 +26,7 @@ export default function Footer() {
             <div className="md:col-span-4">
               <Link to="/" className="inline-block mb-3">
                 <h2 className="text-xl font-bold">
-                  <span className="text-white">Wincider</span>
+                  <span className="text-white">Wincidre</span>
                   <span className="text-[#FFD700]">Tech</span>
                 </h2>
               </Link>

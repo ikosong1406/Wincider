@@ -32,7 +32,7 @@ export default function Header() {
               <Link to="/" className="flex items-center gap-3">
                 <div className="">
                   <h1 className="text-xl font-bold">
-                    <span className="text-white">Wincider</span>
+                    <span className="text-white">Wincidre</span>
                     <span className="text-[#FFD700] ml-1">Tech</span>
                   </h1>
                 </div>

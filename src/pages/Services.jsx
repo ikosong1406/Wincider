@@ -74,9 +74,9 @@ const Services = () => {
       id: 1,
       name: "Full Stack Development",
       icon: <FaCode />,
-      iconColor: "text-[#FFD700]",
-      bgColor: "bg-[#FFD700]/10",
-      borderColor: "border-[#FFD700]/20",
+      iconColor: "text-blue-300",
+      bgColor: "bg-blue-300/10",
+      borderColor: "border-blue-300/20",
       description:
         "End-to-end web applications built with modern architectures and best practices",
       technologies: [
@@ -110,9 +110,9 @@ const Services = () => {
       id: 2,
       name: "Mobile Development",
       icon: <FaMobile />,
-      iconColor: "text-[#FFD700]",
-      bgColor: "bg-[#FFD700]/10",
-      borderColor: "border-[#FFD700]/20",
+      iconColor: "text-blue-300",
+      bgColor: "bg-blue-300/10",
+      borderColor: "border-blue-300/20",
       description:
         "Native and cross-platform mobile experiences for iOS and Android",
       technologies: ["React Native", "Flutter", "Swift", "Kotlin", "Firebase"],
@@ -139,9 +139,9 @@ const Services = () => {
       id: 3,
       name: "UI/UX Design",
       icon: <RiPaletteLine />,
-      iconColor: "text-[#FFD700]",
-      bgColor: "bg-[#FFD700]/10",
-      borderColor: "border-[#FFD700]/20",
+      iconColor: "text-blue-300",
+      bgColor: "bg-blue-300/10",
+      borderColor: "border-blue-300/20",
       description:
         "Human-centered design that drives engagement and business results",
       technologies: ["Figma", "Adobe XD", "Framer", "Sketch", "InVision"],
@@ -167,9 +167,9 @@ const Services = () => {
       id: 4,
       name: "DevOps & Cloud",
       icon: <FaCloud />,
-      iconColor: "text-[#FFD700]",
-      bgColor: "bg-[#FFD700]/10",
-      borderColor: "border-[#FFD700]/20",
+      iconColor: "text-blue-300",
+      bgColor: "bg-blue-300/10",
+      borderColor: "border-blue-300/20",
       description:
         "Scalable cloud infrastructure and automated deployment pipelines",
       technologies: [
@@ -203,9 +203,9 @@ const Services = () => {
       id: 5,
       name: "Cybersecurity",
       icon: <FaShieldAlt />,
-      iconColor: "text-[#FFD700]",
-      bgColor: "bg-[#FFD700]/10",
-      borderColor: "border-[#FFD700]/20",
+      iconColor: "text-blue-300",
+      bgColor: "bg-blue-300/10",
+      borderColor: "border-blue-300/20",
       description:
         "Enterprise-grade security solutions protecting your digital assets",
       technologies: [
@@ -239,9 +239,9 @@ const Services = () => {
       id: 6,
       name: "MVP Development",
       icon: <FaRocket />,
-      iconColor: "text-[#FFD700]",
-      bgColor: "bg-[#FFD700]/10",
-      borderColor: "border-[#FFD700]/20",
+      iconColor: "text-blue-300",
+      bgColor: "bg-blue-300/10",
+      borderColor: "border-blue-300/20",
       description:
         "Rapid development to validate your product idea and secure funding",
       technologies: [
@@ -272,7 +272,7 @@ const Services = () => {
   ];
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-[#151515] min-h-screen">
       {/* Hero Section with Background Image */}
       <section
         className="relative hero-section fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-20 md:py-28 border-b border-[#FFD700]/10"
@@ -309,7 +309,7 @@ const Services = () => {
             {services.map((service, index) => (
               <div
                 key={service.id}
-                className="group bg-gray-900/50 rounded-2xl border border-[#FFD700]/10 hover:border-[#FFD700]/30 transition-all duration-500 overflow-hidden hover:transform hover:-translate-y-2"
+                className="group rounded-2xl border border-[#FFD700]/10 hover:border-[#FFD700]/30 transition-all duration-500 overflow-hidden hover:transform hover:-translate-y-2"
                 onMouseEnter={() => setActiveService(index)}
               >
                 <div className="p-8 md:p-10">
@@ -344,7 +344,7 @@ const Services = () => {
                         </span>
                       ))}
                       {service.technologies.length > 5 && (
-                        <span className="px-3 py-1 bg-[#FFD700]/5 border border-[#FFD700]/10 rounded-full text-xs text-[#FFD700]">
+                        <span className="px-3 py-1 bg-blue-300/5 border border-blue-300/10 rounded-full text-xs text-blue-300">
                           +{service.technologies.length - 5} more
                         </span>
                       )}
@@ -372,7 +372,7 @@ const Services = () => {
                       </div>
                     ))}
                     {service.iconArray.length > 4 && (
-                      <div className="w-10 h-10 rounded-lg bg-[#FFD700]/5 border border-[#FFD700]/10 flex items-center justify-center text-[#FFD700] text-xs font-bold">
+                      <div className="w-10 h-10 rounded-lg bg-blue-300/5 border border-blue-300/10 flex items-center justify-center text-blue-300 text-xs font-bold">
                         +{service.iconArray.length - 4}
                       </div>
                     )}
@@ -383,7 +383,7 @@ const Services = () => {
                     onClick={() => {
                       window.location.href = `/contact`;
                     }}
-                    className="w-full bg-[#FFD700] text-black px-6 py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 hover:bg-[#FFD700]/90 transition-all duration-300 group/btn"
+                    className="w-full bg-[#FFD700]/95 text-black px-6 py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 hover:bg-[#FFD700]/90 transition-all duration-300 group/btn"
                   >
                     <span>Get Started</span>
                     <FaArrowRight className="text-sm group-hover/btn:translate-x-1 transition-transform" />

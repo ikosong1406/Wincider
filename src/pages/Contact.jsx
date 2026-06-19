@@ -37,13 +37,13 @@ const Contact = () => {
 
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent(
-      "Hello! I'm interested in learning more about Wincider Tech's services. Can you provide more information?",
+      "Hello! I'm interested in learning more about Wincidre's services. Can you provide more information?",
     );
     window.open(`https://wa.me/1234567890?text=${message}`, "_blank");
   };
 
   const handleEmailClick = () => {
-    window.location.href = "mailto:support@wincider.org";
+    window.location.href = "mailto:support@wincidre.com";
   };
 
   const contactMethods = [
@@ -56,7 +56,7 @@ const Contact = () => {
       buttonText: "Chat Now",
       color: "text-[#25D366]",
       bgColor: "bg-[#25D366]/10",
-      borderColor: "border-[#25D366]/20",
+      borderColor: "border-[#25D366]",
       hoverColor: "hover:border-[#25D366]/40",
     },
     {
@@ -66,15 +66,15 @@ const Contact = () => {
       description: "Detailed inquiries",
       action: handleEmailClick,
       buttonText: "Send Email",
-      color: "text-[#FFD700]",
-      bgColor: "bg-[#FFD700]/10",
-      borderColor: "border-[#FFD700]/20",
-      hoverColor: "hover:border-[#FFD700]/40",
+      color: "text-blue-300",
+      bgColor: "bg-blue-300/10",
+      borderColor: "border-blue-300",
+      hoverColor: "hover:border-blue-300/40",
     },
   ];
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-[#151515] min-h-screen">
       {/* Hero Section with Background */}
       <section
         className="relative hero-section fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-20 md:py-28 border-b border-[#FFD700]/10"
@@ -109,7 +109,7 @@ const Contact = () => {
               {contactMethods.map((method) => (
                 <div
                   key={method.id}
-                  className={`group bg-gray-900/50 rounded-2xl border ${method.borderColor} ${method.hoverColor} transition-all duration-500 p-8 md:p-10 hover:transform hover:-translate-y-2`}
+                  className={`group rounded-2xl border ${method.borderColor} ${method.hoverColor} transition-all duration-500 p-8 md:p-10 hover:transform hover:-translate-y-2`}
                 >
                   <div className="text-center">
                     <div
@@ -125,7 +125,7 @@ const Contact = () => {
                     <p className="text-gray-400 mb-6">{method.description}</p>
                     <button
                       onClick={method.action}
-                      className="w-full bg-[#FFD700] text-black px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-[#FFD700]/90 transition-all duration-300 group/btn"
+                      className="w-full bg-[#FFD700]/95 text-black px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-[#FFD700]/90 transition-all duration-300 group/btn"
                     >
                       <span>{method.buttonText}</span>
                       <FaArrowRight className="text-sm group-hover/btn:translate-x-1 transition-transform" />
@@ -136,7 +136,7 @@ const Contact = () => {
             </div>
 
             {/* Contact Details */}
-            <div className="bg-gray-900/30 rounded-2xl border border-[#FFD700]/10 p-8 md:p-10">
+            <div className="rounded-2xl border border-[#FFD700]/10 p-8 md:p-10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-[#FFD700]/10 rounded-xl flex items-center justify-center text-[#FFD700] flex-shrink-0">
@@ -152,7 +152,7 @@ const Contact = () => {
                       }}
                       className="text-gray-400 hover:text-[#FFD700] transition-colors"
                     >
-                      support@wincider.org
+                      support@wincidre.com
                     </a>
                     <p className="text-sm text-gray-500 mt-1">
                       For general inquiries

@@ -33,7 +33,7 @@ export default function Header() {
                 <div className="">
                   <h1 className="text-xl font-bold">
                     <span className="text-white">Wincidre</span>
-                    <span className="text-[#FFD700] ml-1">Tech</span>
+                    <span className="text-[#FFD700]">Tech</span>
                   </h1>
                 </div>
               </Link>
@@ -70,7 +70,7 @@ export default function Header() {
               {/* CTA Button - Desktop */}
               <Link
                 to="/contact"
-                className="hidden lg:flex items-center gap-2 px-6 py-2.5 bg-[#FFD700] text-black font-semibold rounded-lg hover:shadow-lg hover:shadow-[#FFD700]/20 transition-all hover:scale-105"
+                className="hidden lg:flex items-center gap-2 px-6 py-2.5 bg-[#FFD700]/95 text-black font-semibold rounded-lg hover:shadow-lg hover:shadow-[#FFD700]/20 transition-all hover:scale-105"
               >
                 Contact Us
                 <RiArrowRightLine className="w-4 h-4" />

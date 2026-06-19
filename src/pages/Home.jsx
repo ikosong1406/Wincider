@@ -311,7 +311,7 @@ func innovate() *Solution {
               <div className="flex flex-wrap gap-3 md:gap-4 mb-6 md:mb-12">
                 <button
                   onClick={() => (window.location.href = "/contact")}
-                  className="bg-[#FFD700] text-black px-5 md:px-8 py-2.5 md:py-4 rounded-xl font-semibold text-sm md:text-lg flex items-center gap-2 md:gap-3 hover:bg-[#FFD700]/90 transition-all duration-300"
+                  className="bg-[#FFD700]/95 text-black px-5 md:px-8 py-2.5 md:py-4 rounded-xl font-semibold text-sm md:text-lg flex items-center gap-2 md:gap-3 hover:bg-[#FFD700]/90 transition-all duration-300"
                 >
                   Start Your Project
                   <FaArrowRight className="text-sm md:text-base" />
@@ -330,7 +330,7 @@ func innovate() *Solution {
                   {[...partnerLogos, ...partnerLogos].map((logo, index) => (
                     <div
                       key={index}
-                      className="flex-shrink-0 w-10 h-10 md:w-16 md:h-16 bg-white/10 rounded-xl flex items-center justify-center border border-[#FFD700]/20"
+                      className="flex-shrink-0 w-10 h-10 md:w-16 md:h-16 bg-black/30 rounded-xl flex items-center justify-center border border-[#FFD700]/40"
                     >
                       <img
                         src={logo}

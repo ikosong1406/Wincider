@@ -265,9 +265,9 @@ const Portfolio = () => {
       : projectsData.filter((p) => p.category === filter);
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-[#151515] min-h-screen">
       {/* Hero Section */}
-      <section className="bg-black hero-section fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-20 border-b border-[#FFD700]/20">
+      <section className="bg-[#151515] hero-section fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-20 border-b border-[#FFD700]/20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             <span className="text-white">Our </span>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaCode,
   FaMobile,
@@ -6,11 +6,8 @@ import {
   FaCloud,
   FaShieldAlt,
   FaRocket,
-  FaArrowLeft,
   FaArrowRight,
   FaCheck,
-  FaClock,
-  FaUsers,
   FaCog,
   FaDatabase,
   FaServer,
@@ -22,6 +19,9 @@ import {
   FaFigma,
   FaApple,
   FaAndroid,
+  FaChartLine,
+  FaUsers,
+  FaClock,
 } from "react-icons/fa";
 import {
   SiTypescript,
@@ -37,20 +37,15 @@ import {
   SiFramer,
   SiFirebase,
   SiGooglecloud,
-  SiTrello,
-  SiJira,
 } from "react-icons/si";
-import {
-  RiCodeBoxLine,
-  RiGitBranchLine,
-  RiTestTubeLine,
-  RiPaletteLine,
-} from "react-icons/ri";
+import { RiCodeBoxLine, RiPaletteLine, RiFlashlightLine } from "react-icons/ri";
+
+// Background image
+const servicesHeroBg =
+  "https://i.pinimg.com/736x/0b/4c/84/0b4c84fff48a3ad3b3172325de05c2c5.jpg";
 
 const Services = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const autoPlayRef = useRef();
+  const [activeService, setActiveService] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -75,50 +70,34 @@ const Services = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Auto-pagination
-  useEffect(() => {
-    if (isAutoPlaying) {
-      autoPlayRef.current = setInterval(() => {
-        setCurrentIndex((prevIndex) =>
-          prevIndex === mainServices.length - 1 ? 0 : prevIndex + 1,
-        );
-      }, 5000);
-    }
-
-    return () => {
-      if (autoPlayRef.current) {
-        clearInterval(autoPlayRef.current);
-      }
-    };
-  }, [isAutoPlaying]);
-
-  const handlePrevious = () => {
-    setIsAutoPlaying(false);
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? mainServices.length - 1 : prevIndex - 1,
-    );
-  };
-
-  const handleNext = () => {
-    setIsAutoPlaying(false);
-    setCurrentIndex((prevIndex) =>
-      prevIndex === mainServices.length - 1 ? 0 : prevIndex + 1,
-    );
-  };
-
-  const handleDotClick = (index) => {
-    setIsAutoPlaying(false);
-    setCurrentIndex(index);
-  };
-
-  const mainServices = [
+  const services = [
     {
       id: 1,
       name: "Full Stack Development",
       icon: <FaCode />,
-      textColor: "text-[#FFD700]",
+      iconColor: "text-[#FFD700]",
       bgColor: "bg-[#FFD700]/10",
       borderColor: "border-[#FFD700]/20",
+      description:
+        "End-to-end web applications built with modern architectures and best practices",
+      technologies: [
+        "React",
+        "Node.js",
+        "TypeScript",
+        "Python",
+        "PostgreSQL",
+        "MongoDB",
+      ],
+      features: [
+        "Custom web application development",
+        "RESTful & GraphQL API design",
+        "Database architecture & optimization",
+        "Authentication & authorization systems",
+        "Responsive & accessible frontend",
+        "Third-party integrations",
+        "Performance optimization",
+        "Comprehensive testing suites",
+      ],
       iconArray: [
         <FaReact />,
         <FaNodeJs />,
@@ -127,45 +106,27 @@ const Services = () => {
         <SiPostgresql />,
         <SiMongodb />,
       ],
-      description: "End-to-end web applications with modern architectures",
-      duration: "2-12 weeks",
-      technologies: [
-        "React",
-        "Node.js",
-        "Python",
-        "TypeScript",
-        "PostgreSQL",
-        "MongoDB",
-      ],
-      includes: [
-        "Custom web application development",
-        "RESTful API design & implementation",
-        "Database design & optimization",
-        "Authentication & authorization",
-        "Responsive frontend development",
-        "Third-party integrations",
-        "Performance optimization",
-        "Comprehensive testing",
-      ],
-      addons: [
-        { name: "E-commerce Integration" },
-        { name: "Real-time Features (WebSocket)" },
-        { name: "Admin Dashboard" },
-        { name: "Maintenance Package" },
-      ],
-      stats: {
-        projects: "50+",
-        satisfaction: "98%",
-        delivery: "On-time",
-      },
     },
     {
       id: 2,
       name: "Mobile Development",
       icon: <FaMobile />,
-      textColor: "text-[#FFD700]",
+      iconColor: "text-[#FFD700]",
       bgColor: "bg-[#FFD700]/10",
       borderColor: "border-[#FFD700]/20",
+      description:
+        "Native and cross-platform mobile experiences for iOS and Android",
+      technologies: ["React Native", "Flutter", "Swift", "Kotlin", "Firebase"],
+      features: [
+        "Cross-platform & native development",
+        "Pixel-perfect UI implementation",
+        "App store deployment & optimization",
+        "Push notifications & real-time updates",
+        "Offline-first architecture",
+        "Biometric authentication",
+        "Analytics & crash reporting",
+        "Performance monitoring",
+      ],
       iconArray: [
         <SiFlutter />,
         <SiSwift />,
@@ -174,92 +135,63 @@ const Services = () => {
         <SiFirebase />,
         <FaAndroid />,
       ],
-      description: "Native and cross-platform mobile applications",
-      duration: "4-16 weeks",
-      technologies: [
-        "React Native",
-        "Flutter",
-        "Swift",
-        "Kotlin",
-        "Firebase",
-        "iOS/Android",
-      ],
-      includes: [
-        "Cross-platform or native development",
-        "UI/UX implementation",
-        "App store deployment assistance",
-        "Push notifications",
-        "Offline functionality",
-        "Biometric authentication",
-        "Analytics integration",
-        "Performance optimization",
-      ],
-      addons: [
-        { name: "App Store Optimization" },
-        { name: "AR Features" },
-        { name: "Wearable Integration" },
-        { name: "Enterprise License" },
-      ],
-      stats: {
-        projects: "35+",
-        satisfaction: "96%",
-        delivery: "On-time",
-      },
     },
     {
       id: 3,
       name: "UI/UX Design",
       icon: <RiPaletteLine />,
-      textColor: "text-[#FFD700]",
+      iconColor: "text-[#FFD700]",
       bgColor: "bg-[#FFD700]/10",
       borderColor: "border-[#FFD700]/20",
+      description:
+        "Human-centered design that drives engagement and business results",
+      technologies: ["Figma", "Adobe XD", "Framer", "Sketch", "InVision"],
+      features: [
+        "User research & persona development",
+        "Wireframing & interactive prototyping",
+        "Visual design & brand identity",
+        "Interaction & motion design",
+        "Usability testing & validation",
+        "Design system creation",
+        "WCAG accessibility compliance",
+        "Developer handoff & documentation",
+      ],
       iconArray: [
         <FaFigma />,
         <SiAdobexd />,
         <SiFramer />,
         <FaPaintBrush />,
-        <SiTrello />,
-        <SiJira />,
+        <FaCloud />,
+        <FaUsers />,
       ],
-      description: "User-centered design that drives engagement and conversion",
-      duration: "2-8 weeks",
-      technologies: [
-        "Figma",
-        "Adobe XD",
-        "Sketch",
-        "InVision",
-        "Framer",
-        "Principle",
-      ],
-      includes: [
-        "User research & personas",
-        "Wireframing & prototyping",
-        "Visual design & branding",
-        "Interaction design",
-        "Usability testing",
-        "Design system creation",
-        "Accessibility compliance",
-        "Developer handoff",
-      ],
-      addons: [
-        { name: "Custom Illustrations" },
-        { name: "Motion Design" },
-        { name: "User Testing Sessions" },
-        { name: "Brand Guidelines" },
-      ],
-      stats: {
-        projects: "60+",
-        satisfaction: "99%",
-        delivery: "On-time",
-      },
     },
     {
       id: 4,
       name: "DevOps & Cloud",
       icon: <FaCloud />,
-      textColor: "text-[#FFD700]",
+      iconColor: "text-[#FFD700]",
       bgColor: "bg-[#FFD700]/10",
       borderColor: "border-[#FFD700]/20",
+      description:
+        "Scalable cloud infrastructure and automated deployment pipelines",
+      technologies: [
+        "AWS",
+        "Google Cloud",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Jenkins",
+      ],
+      features: [
+        "Cloud infrastructure architecture",
+        "CI/CD pipeline implementation",
+        "Containerization & orchestration",
+        "Monitoring & observability",
+        "Security & compliance hardening",
+        "Auto-scaling & load balancing",
+        "Disaster recovery planning",
+        "Cost optimization strategies",
+      ],
       iconArray: [
         <FaAws />,
         <SiGooglecloud />,
@@ -268,55 +200,16 @@ const Services = () => {
         <SiTerraform />,
         <SiJenkins />,
       ],
-      description: "Scalable infrastructure and automated deployment pipelines",
-      duration: "3-10 weeks",
-      technologies: [
-        "AWS",
-        "Azure",
-        "Docker",
-        "Kubernetes",
-        "Terraform",
-        "Jenkins",
-      ],
-      includes: [
-        "Cloud infrastructure setup",
-        "CI/CD pipeline implementation",
-        "Container orchestration",
-        "Monitoring & logging",
-        "Security hardening",
-        "Auto-scaling configuration",
-        "Disaster recovery planning",
-        "Performance optimization",
-      ],
-      addons: [
-        { name: "24/7 Support" },
-        { name: "Multi-region Deployment" },
-        { name: "SOC2 Compliance" },
-        { name: "Load Testing" },
-      ],
-      stats: {
-        projects: "40+",
-        satisfaction: "97%",
-        delivery: "On-time",
-      },
     },
     {
       id: 5,
       name: "Cybersecurity",
       icon: <FaShieldAlt />,
-      textColor: "text-[#FFD700]",
+      iconColor: "text-[#FFD700]",
       bgColor: "bg-[#FFD700]/10",
       borderColor: "border-[#FFD700]/20",
-      iconArray: [
-        <FaShieldAlt />,
-        <FaServer />,
-        <FaDatabase />,
-        <FaCog />,
-        <FaCloud />,
-        <FaCheck />,
-      ],
-      description: "Comprehensive security solutions for your digital assets",
-      duration: "2-6 weeks",
+      description:
+        "Enterprise-grade security solutions protecting your digital assets",
       technologies: [
         "Penetration Testing",
         "Security Audits",
@@ -325,333 +218,204 @@ const Services = () => {
         "WAF",
         "SIEM",
       ],
-      includes: [
-        "Vulnerability assessment",
-        "Penetration testing",
+      features: [
+        "Vulnerability assessments",
+        "Penetration testing services",
         "Security architecture review",
         "Incident response planning",
-        "Compliance auditing (GDPR/SOC2)",
-        "Employee security training",
+        "Compliance auditing (GDPR, SOC2, HIPAA)",
+        "Security awareness training",
         "Network security hardening",
-        "Ongoing monitoring setup",
+        "Continuous monitoring setup",
       ],
-      addons: [
-        { name: "Annual Penetration Testing" },
-        { name: "Security Training Program" },
-        { name: "Bug Bounty Program Setup" },
-        { name: "Managed SIEM" },
+      iconArray: [
+        <FaShieldAlt />,
+        <FaServer />,
+        <FaDatabase />,
+        <FaCog />,
+        <FaCloud />,
+        <FaCheck />,
       ],
-      stats: {
-        projects: "30+",
-        satisfaction: "100%",
-        delivery: "On-time",
-      },
     },
     {
       id: 6,
       name: "MVP Development",
       icon: <FaRocket />,
-      textColor: "text-[#FFD700]",
+      iconColor: "text-[#FFD700]",
       bgColor: "bg-[#FFD700]/10",
       borderColor: "border-[#FFD700]/20",
+      description:
+        "Rapid development to validate your product idea and secure funding",
+      technologies: [
+        "Lean Methodology",
+        "Agile",
+        "Rapid Prototyping",
+        "Product Strategy",
+      ],
+      features: [
+        "Product strategy workshops",
+        "Core feature development",
+        "User testing & feedback loops",
+        "Iterative improvements",
+        "Analytics implementation",
+        "Investor-ready demonstrations",
+        "Market validation support",
+        "Post-launch support",
+      ],
       iconArray: [
         <FaRocket />,
         <FaCode />,
         <FaMobile />,
         <FaCloud />,
         <FaDatabase />,
-        <FaUsers />,
+        <FaChartLine />,
       ],
-      description: "Rapid development to validate your business idea",
-      duration: "4-12 weeks",
-      technologies: [
-        "Rapid Prototyping",
-        "Agile",
-        "Lean Methodology",
-        "Product Strategy",
-      ],
-      includes: [
-        "Product strategy workshop",
-        "Core feature development",
-        "User testing with real users",
-        "Iterative improvements",
-        "Basic analytics setup",
-        "Feedback collection tools",
-        "Investor-ready demo",
-        "3 months of support",
-      ],
-      addons: [
-        { name: "Extended User Testing" },
-        { name: "Pitch Deck Creation" },
-        { name: "Market Research" },
-        { name: "Post-MVP Roadmap" },
-      ],
-      stats: {
-        projects: "25+",
-        satisfaction: "95%",
-        delivery: "On-time",
-      },
     },
   ];
 
-  const currentService = mainServices[currentIndex];
-
   return (
     <div className="bg-black min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-black hero-section fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 md:py-20 border-b border-[#FFD700]/20">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
-              <span className="text-white">Our </span>
-              <span className="text-[#FFD700]">Services</span>
+      {/* Hero Section with Background Image */}
+      <section
+        className="relative hero-section fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-20 md:py-28 border-b border-[#FFD700]/10"
+        style={{
+          backgroundImage: `url(${servicesHeroBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+        }}
+      >
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/80"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="text-white">Comprehensive </span>
+              <span className="text-[#FFD700]">Technology</span>
+              <br />
+              <span className="text-white">Solutions</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4">
-              Comprehensive technology solutions tailored to accelerate your
-              business growth
+            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+              We deliver cutting-edge technology services that transform
+              businesses and drive measurable results
             </p>
           </div>
         </div>
       </section>
 
-      {/* Service Carousel */}
-      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-8 md:py-12">
+      {/* Services Grid */}
+      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 md:py-24">
         <div className="container mx-auto px-4">
-          {/* Service Counter */}
-          <div className="flex justify-between items-center mb-6 md:mb-8">
-            <div className="text-gray-400 text-sm md:text-base">
-              <span className="text-[#FFD700] font-bold">
-                {currentIndex + 1}
-              </span>
-              <span className="text-gray-600"> / {mainServices.length}</span>
-            </div>
-
-            {/* Navigation Arrows */}
-            <div className="flex gap-2 md:gap-3">
-              <button
-                onClick={handlePrevious}
-                className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#FFD700]/20 bg-black hover:bg-[#FFD700]/10 flex items-center justify-center transition-all group"
-                aria-label="Previous service"
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10">
+            {services.map((service, index) => (
+              <div
+                key={service.id}
+                className="group bg-gray-900/50 rounded-2xl border border-[#FFD700]/10 hover:border-[#FFD700]/30 transition-all duration-500 overflow-hidden hover:transform hover:-translate-y-2"
+                onMouseEnter={() => setActiveService(index)}
               >
-                <FaArrowLeft className="text-[#FFD700] text-sm md:text-base group-hover:scale-110 transition-transform" />
-              </button>
-              <button
-                onClick={handleNext}
-                className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#FFD700]/20 bg-black hover:bg-[#FFD700]/10 flex items-center justify-center transition-all group"
-                aria-label="Next service"
-              >
-                <FaArrowRight className="text-[#FFD700] text-sm md:text-base group-hover:scale-110 transition-transform" />
-              </button>
-            </div>
-          </div>
-
-          {/* Service Details Card */}
-          <div className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out">
-            <div className="bg-gray-900 rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden border border-[#FFD700]/20">
-              {/* Mobile: Icon Grid First */}
-              <div className="lg:hidden">
-                <div className="bg-black p-6 flex items-center justify-center border-b border-[#FFD700]/20">
-                  {/* Icon Grid - Smaller for mobile */}
-                  <div className="grid grid-cols-3 gap-3 w-full max-w-sm">
-                    {currentService.iconArray.slice(0, 6).map((icon, index) => (
-                      <div
-                        key={index}
-                        className={`aspect-square rounded-xl ${currentService.bgColor} border ${currentService.borderColor} flex items-center justify-center transform hover:scale-110 transition-transform duration-300`}
-                      >
-                        <div
-                          className={`text-3xl md:text-4xl ${currentService.textColor}`}
-                        >
-                          {icon}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="lg:flex">
-                {/* Left Column - Icon Grid for Desktop */}
-                <div className="hidden lg:block lg:w-2/5 bg-black p-8 flex items-center justify-center border-r border-[#FFD700]/20">
-                  {/* Icon Grid */}
-                  <div className="grid grid-cols-2 gap-6 w-full max-w-md">
-                    {currentService.iconArray.map((icon, index) => (
-                      <div
-                        key={index}
-                        className={`aspect-square rounded-2xl ${currentService.bgColor} border ${currentService.borderColor} flex items-center justify-center transform hover:scale-110 transition-transform duration-300`}
-                      >
-                        <div
-                          className={`text-5xl xl:text-6xl ${currentService.textColor}`}
-                        >
-                          {icon}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Right Column - Details */}
-                <div className="lg:w-3/5 p-6 md:p-8 lg:p-10">
+                <div className="p-8 md:p-10">
                   {/* Header */}
-                  <div className="flex items-start mb-6">
-                    <div>
-                      <div className="flex items-center gap-2 md:gap-3 mb-2">
-                        <div
-                          className={`p-2 md:p-3 rounded-xl ${currentService.bgColor} border ${currentService.borderColor}`}
-                        >
-                          <div
-                            className={`text-xl md:text-2xl ${currentService.textColor}`}
-                          >
-                            {currentService.icon}
-                          </div>
-                        </div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-white">
-                          {currentService.name}
-                        </h2>
+                  <div className="flex items-start gap-4 mb-6">
+                    <div
+                      className={`p-4 rounded-xl ${service.bgColor} border ${service.borderColor} flex-shrink-0`}
+                    >
+                      <div className={`text-2xl ${service.iconColor}`}>
+                        {service.icon}
                       </div>
-                      <p className="text-sm md:text-base text-gray-400 ml-10 md:ml-16">
-                        {currentService.description}
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-white mb-2">
+                        {service.name}
+                      </h3>
+                      <p className="text-gray-400 text-sm leading-relaxed">
+                        {service.description}
                       </p>
                     </div>
                   </div>
 
-                  {/* Stats Cards - Responsive grid */}
-                  <div className="grid grid-cols-3 gap-2 md:gap-3 mb-6 md:mb-8">
-                    <div className="bg-black/50 rounded-lg p-2 md:p-3 border border-[#FFD700]/10">
-                      <p className="text-xs text-gray-500">Projects</p>
-                      <p className="text-base md:text-xl font-bold text-[#FFD700]">
-                        {currentService.stats.projects}
-                      </p>
-                    </div>
-                    <div className="bg-black/50 rounded-lg p-2 md:p-3 border border-[#FFD700]/10">
-                      <p className="text-xs text-gray-500">Satisfaction</p>
-                      <p className="text-base md:text-xl font-bold text-[#FFD700]">
-                        {currentService.stats.satisfaction}
-                      </p>
-                    </div>
-                    <div className="bg-black/50 rounded-lg p-2 md:p-3 border border-[#FFD700]/10">
-                      <p className="text-xs text-gray-500">Delivery</p>
-                      <p className="text-base md:text-xl font-bold text-[#FFD700]">
-                        {currentService.stats.delivery}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Info Cards - Wrap on mobile */}
-                  <div className="flex flex-wrap gap-2 md:gap-4 mb-6 md:mb-8">
-                    <div className="flex items-center gap-1 md:gap-2 bg-black/50 px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-[#FFD700]/10">
-                      <FaClock className="text-[#FFD700] text-xs md:text-sm" />
-                      <span className="text-xs md:text-sm text-gray-300">
-                        {currentService.duration}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-1 md:gap-2 bg-black/50 px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-[#FFD700]/10">
-                      <FaUsers className="text-[#FFD700] text-xs md:text-sm" />
-                      <span className="text-xs md:text-sm text-gray-300">
-                        Dedicated Team
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Technologies - Responsive */}
-                  <div className="mb-6 md:mb-8">
-                    <h3 className="text-base md:text-lg font-semibold text-white mb-2 md:mb-3 flex items-center gap-2">
-                      <FaCog className="text-[#FFD700] text-sm md:text-base" />
-                      Technologies
-                    </h3>
-                    <div className="flex flex-wrap gap-1.5 md:gap-2">
-                      {currentService.technologies.map((tech, index) => (
+                  {/* Tech Stack */}
+                  <div className="mb-6">
+                    <div className="flex flex-wrap gap-2">
+                      {service.technologies.slice(0, 5).map((tech, idx) => (
                         <span
-                          key={index}
-                          className={`px-2 md:px-3 py-1 ${currentService.bgColor} border ${currentService.borderColor} rounded-full text-xs md:text-sm text-gray-300`}
+                          key={idx}
+                          className="px-3 py-1 bg-[#FFD700]/5 border border-[#FFD700]/10 rounded-full text-xs text-gray-300"
                         >
                           {tech}
                         </span>
                       ))}
+                      {service.technologies.length > 5 && (
+                        <span className="px-3 py-1 bg-[#FFD700]/5 border border-[#FFD700]/10 rounded-full text-xs text-[#FFD700]">
+                          +{service.technologies.length - 5} more
+                        </span>
+                      )}
                     </div>
                   </div>
 
-                  {/* Two Column Layout - Stack on mobile */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
-                    {/* What's Included */}
-                    <div>
-                      <h3 className="text-base md:text-lg font-semibold text-white mb-3 md:mb-4 flex items-center gap-2">
-                        <FaCheck className="text-green-500 text-sm md:text-base" />
-                        What's Included
-                      </h3>
-                      <ul className="space-y-2 md:space-y-3">
-                        {currentService.includes
-                          .slice(0, 6)
-                          .map((item, index) => (
-                            <li key={index} className="flex items-start gap-2">
-                              <div className="w-4 h-4 md:w-5 md:h-5 bg-green-500/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <FaCheck className="text-green-500 text-[10px] md:text-xs" />
-                              </div>
-                              <span className="text-xs md:text-sm text-gray-400">
-                                {item}
-                              </span>
-                            </li>
-                          ))}
-                      </ul>
-                    </div>
-
-                    {/* Addons */}
-                    <div>
-                      <h3 className="text-base md:text-lg font-semibold text-white mb-3 md:mb-4 flex items-center gap-2">
-                        <FaDatabase className="text-[#FFD700] text-sm md:text-base" />
-                        Optional Addons
-                      </h3>
-                      <ul className="space-y-2 md:space-y-3">
-                        {currentService.addons.map((addon, index) => (
-                          <li
-                            key={index}
-                            className="flex justify-between items-center py-1.5 md:py-2 border-b border-[#FFD700]/10"
-                          >
-                            <span className="text-xs md:text-sm text-gray-400">
-                              {addon.name}
-                            </span>
-                            <span className="text-xs md:text-sm text-gray-500">
-                              Available
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  {/* Features List */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-8">
+                    {service.features.slice(0, 6).map((feature, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <FaCheck className="text-[#FFD700] text-xs mt-1 flex-shrink-0" />
+                        <span className="text-sm text-gray-400">{feature}</span>
+                      </div>
+                    ))}
                   </div>
 
-                  {/* CTA Button */}
+                  {/* Tech Icons */}
+                  <div className="flex items-center gap-3 mb-6">
+                    {service.iconArray.slice(0, 4).map((icon, idx) => (
+                      <div
+                        key={idx}
+                        className={`w-10 h-10 rounded-lg ${service.bgColor} border ${service.borderColor} flex items-center justify-center ${service.iconColor} text-lg`}
+                      >
+                        {icon}
+                      </div>
+                    ))}
+                    {service.iconArray.length > 4 && (
+                      <div className="w-10 h-10 rounded-lg bg-[#FFD700]/5 border border-[#FFD700]/10 flex items-center justify-center text-[#FFD700] text-xs font-bold">
+                        +{service.iconArray.length - 4}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* CTA */}
                   <button
                     onClick={() => {
-                      window.location.href = `/contact?service=${currentService.name
-                        .toLowerCase()
-                        .replace(/ /g, "-")}`;
+                      window.location.href = `/contact`;
                     }}
-                    className="w-full bg-[#FFD700] text-black px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-base md:text-lg flex items-center justify-center gap-2 md:gap-3 hover:bg-[#FFD700]/90 transition-all duration-300 group"
+                    className="w-full bg-[#FFD700] text-black px-6 py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 hover:bg-[#FFD700]/90 transition-all duration-300 group/btn"
                   >
-                    <span>Start Your Project</span>
-                    <FaArrowRight className="text-sm md:text-base group-hover:translate-x-1 transition-transform" />
+                    <span>Get Started</span>
+                    <FaArrowRight className="text-sm group-hover/btn:translate-x-1 transition-transform" />
                   </button>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Service Dots */}
-          <div className="flex justify-center mt-6 md:mt-8 gap-1.5 md:gap-2">
-            {mainServices.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => handleDotClick(index)}
-                className={`h-1.5 md:h-2 rounded-full transition-all ${
-                  index === currentIndex
-                    ? "w-6 md:w-8 bg-[#FFD700]"
-                    : "w-1.5 md:w-2 bg-[#FFD700]/30 hover:bg-[#FFD700]/50"
-                }`}
-                aria-label={`Go to service ${index + 1}`}
-              />
             ))}
           </div>
         </div>
       </section>
+
+      <style jsx>{`
+        .fade-in-section {
+          transition:
+            opacity 0.8s ease-out,
+            transform 0.8s ease-out;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+          width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+          background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+          background: #ffd700;
+          border-radius: 4px;
+        }
+      `}</style>
     </div>
   );
 };

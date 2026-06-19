@@ -372,7 +372,7 @@ func innovate() *Solution {
 
                 {/* Code Display */}
                 <div className="p-3 md:p-6 bg-[#1e1e1e] min-h-[150px] md:min-h-[300px] overflow-x-auto">
-                  <pre className="text-[10px] md:text-sm text-gray-300 font-mono">
+                  <pre className="text-[10px] md:text-sm text-blue-300 font-mono">
                     <code>{codeSnippets[activeLanguage]}</code>
                   </pre>
                 </div>
@@ -383,7 +383,7 @@ func innovate() *Solution {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 md:py-24 border-t border-[#FFD700]/20">
+      <section className="bg-[#151515] fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 md:py-24 border-t border-[#FFD700]/20">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12 md:gap-16">
             <div className="lg:w-1/2 relative">
@@ -399,8 +399,8 @@ func innovate() *Solution {
 
             <div className="lg:w-1/2">
               <div className="inline-flex items-center gap-2 border border-[#FFD700]/20 rounded-full px-3 md:px-4 py-1 md:py-2 mb-4 md:mb-6">
-                <RiCodeBoxLine className="text-[#FFD700]" />
-                <span className="text-[#FFD700] text-xs md:text-sm">
+                <RiCodeBoxLine className="text-blue-300" />
+                <span className="text-blue-300 text-xs md:text-sm">
                   Why Choose Us
                 </span>
               </div>
@@ -456,8 +456,8 @@ func innovate() *Solution {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12 md:mb-16">
             <div className="inline-flex items-center gap-2 border border-[#FFD700]/20 rounded-full px-3 md:px-4 py-1 md:py-2 mb-3 md:mb-4">
-              <FaCogs className="text-[#FFD700]" />
-              <span className="text-[#FFD700] text-xs md:text-sm">
+              <FaCogs className="text-blue-300" />
+              <span className="text-blue-300 text-xs md:text-sm">
                 What We Offer
               </span>
             </div>
@@ -504,7 +504,7 @@ func innovate() *Solution {
           <div className="text-center mt-8 md:mt-12">
             <button
               onClick={() => (window.location.href = "/services")}
-              className="inline-flex items-center gap-2 text-[#FFD700] hover:gap-3 transition-all text-sm md:text-base"
+              className="inline-flex items-center gap-2 text-blue-300 hover:gap-3 transition-all text-sm md:text-base"
             >
               View All Services <FaArrowRight />
             </button>
@@ -513,7 +513,7 @@ func innovate() *Solution {
       </section>
 
       {/* Stats Section */}
-      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 md:py-24">
+      <section className="bg-[#151515] fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat, index) => (
@@ -531,13 +531,13 @@ func innovate() *Solution {
       </section>
 
       {/* Featured Project - Uarra Logistics (Black Background) */}
-      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 md:py-24 bg-black">
+      <section className="bg-[#151515] fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12 md:gap-16">
             <div className="lg:w-1/2">
-              <div className="inline-flex items-center gap-2 border border-[#FFD700]/20 rounded-full px-3 md:px-4 py-1 md:py-2 mb-4 md:mb-6">
-                <FaRocket className="text-[#FFD700]" />
-                <span className="text-[#FFD700] text-xs md:text-sm">
+              <div className="inline-flex items-center gap-2 border border-blue-300/20 rounded-full px-3 md:px-4 py-1 md:py-2 mb-4 md:mb-6">
+                <FaRocket className="text-blue-300" />
+                <span className="text-blue-300 text-xs md:text-sm">
                   Featured Project
                 </span>
               </div>
@@ -550,28 +550,28 @@ func innovate() *Solution {
               </p>
               <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
                 <div className="flex items-center gap-3 md:gap-4 text-gray-300">
-                  <FaCheck className="text-[#FFD700] text-sm md:text-base flex-shrink-0" />
+                  <FaCheck className="text-blue-300 text-sm md:text-base flex-shrink-0" />
                   <span className="text-sm md:text-base">
                     <strong>Merchant App:</strong> Customer-facing app for
                     ordering and tracking deliveries
                   </span>
                 </div>
                 <div className="flex items-center gap-3 md:gap-4 text-gray-300">
-                  <FaCheck className="text-[#FFD700] text-sm md:text-base flex-shrink-0" />
+                  <FaCheck className="text-blue-300 text-sm md:text-base flex-shrink-0" />
                   <span className="text-sm md:text-base">
                     <strong>Hero App:</strong> Driver application for receiving
                     and completing deliveries
                   </span>
                 </div>
                 <div className="flex items-center gap-3 md:gap-4 text-gray-300">
-                  <FaCheck className="text-[#FFD700] text-sm md:text-base flex-shrink-0" />
+                  <FaCheck className="text-blue-300 text-sm md:text-base flex-shrink-0" />
                   <span className="text-sm md:text-base">
                     <strong>ALT App:</strong> Logistics business management and
                     analytics dashboard
                   </span>
                 </div>
                 <div className="flex items-center gap-3 md:gap-4 text-gray-300">
-                  <FaCheck className="text-[#FFD700] text-sm md:text-base flex-shrink-0" />
+                  <FaCheck className="text-blue-300 text-sm md:text-base flex-shrink-0" />
                   <span className="text-sm md:text-base">
                     Real-time tracking and automated dispatching system
                   </span>
@@ -744,7 +744,7 @@ func innovate() *Solution {
 
               <button
                 onClick={() => (window.location.href = "/contact")}
-                className="bg-transparent border border-[#FFD700] text-[#FFD700] px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-base md:text-lg flex items-center justify-center gap-3 hover:bg-[#FFD700]/10 transition-all duration-300"
+                className="bg-transparent border border-blue-300 text-blue-300 px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-base md:text-lg flex items-center justify-center gap-3 hover:bg-blue-300/10 transition-all duration-300"
               >
                 <FaEnvelope className="text-lg md:text-xl" />
                 Send an Email

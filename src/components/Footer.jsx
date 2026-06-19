@@ -17,7 +17,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-gray-300 mt-auto border-t border-white/5">
+    <footer className="bg-[#151515] text-gray-300 mt-auto border-t border-white/5">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-12">

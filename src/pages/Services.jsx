@@ -33,7 +33,6 @@ import {
   SiFlutter,
   SiSwift,
   SiKotlin,
-  SiAdobexd,
   SiFramer,
   SiFirebase,
   SiGooglecloud,
@@ -158,7 +157,6 @@ const Services = () => {
       ],
       iconArray: [
         <FaFigma />,
-        <SiAdobexd />,
         <SiFramer />,
         <FaPaintBrush />,
         <FaCloud />,

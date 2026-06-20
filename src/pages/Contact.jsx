@@ -39,7 +39,7 @@ const Contact = () => {
     const message = encodeURIComponent(
       "Hello! I'm interested in learning more about Wincidre's services. Can you provide more information?",
     );
-    window.open(`https://wa.me/1234567890?text=${message}`, "_blank");
+    window.open(`https://wa.me/+447506981037?text=${message}`, "_blank");
   };
 
   const handleEmailClick = () => {
@@ -170,7 +170,7 @@ const Contact = () => {
                       onClick={handleWhatsAppClick}
                       className="text-gray-400 hover:text-[#25D366] transition-colors text-left"
                     >
-                      +1 (234) 567-890
+                      +44 7506 981037
                     </button>
                     <p className="text-sm text-gray-500 mt-1">
                       Quick responses guaranteed

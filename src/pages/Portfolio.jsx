@@ -340,11 +340,7 @@ const Portfolio = () => {
         <div className="absolute inset-0 bg-[#151515]/80"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 border border-[#FFD700]/30 rounded-full px-4 py-2 mb-6 bg-black/50 backdrop-blur-sm">
-              <RiCodeBoxLine className="text-[#FFD700]" />
-              <span className="text-[#FFD700] text-sm">Our Portfolio</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="text-white">Our </span>
               <span className="text-[#FFD700]">Projects</span>
             </h1>

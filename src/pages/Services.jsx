@@ -303,7 +303,7 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-16 md:py-24">
+      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-12 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10">
             {services.map((service, index) => (
@@ -312,7 +312,7 @@ const Services = () => {
                 className="group rounded-2xl border border-[#FFD700]/10 hover:border-[#FFD700]/30 transition-all duration-500 overflow-hidden hover:transform hover:-translate-y-2"
                 onMouseEnter={() => setActiveService(index)}
               >
-                <div className="p-8 md:p-10">
+                <div className="p-5 md:p-10">
                   {/* Header */}
                   <div className="flex items-start gap-4 mb-6">
                     <div

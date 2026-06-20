@@ -270,7 +270,7 @@ func innovate() *Solution {
   ];
 
   const stats = [
-    { value: "50+", label: "Projects Delivered" },
+    { value: "7+", label: "Industry Built" },
     { value: "98%", label: "Client Satisfaction" },
     { value: "7+", label: "Years Experience" },
     { value: "24/7", label: "Support Available" },

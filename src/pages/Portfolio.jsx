@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {
-  FaTimes,
   FaGlobe,
   FaGithub,
   FaApple,
@@ -8,224 +7,286 @@ import {
   FaClock,
   FaUsers,
   FaCode,
+  FaArrowRight,
+  FaCheckCircle,
 } from "react-icons/fa";
-import { RiCloseLine } from "react-icons/ri";
+import { RiCloseLine, RiCodeBoxLine } from "react-icons/ri";
+import uarra from "../assets/uarra.png";
+import jobbinex from "../assets/jobbinex.png";
+import hero from "../assets/hero.png";
+import punterhub from "../assets/punterhub.png";
+import sharperly from "../assets/sharperly.png";
+import trackapi from "../assets/trackapi.png";
+import trashit from "../assets/trashit.png";
 
-// Sample projects data with case studies
 const projectsData = [
   {
     id: 1,
-    name: "FinTech Dashboard Pro",
-    shortDescription: "Enterprise financial analytics platform",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    category: "Web Application",
-    client: "Global Finance Corp",
-    duration: "6 months",
-    team: "4 developers, 1 UI/UX designer",
+    name: "Uarra Logistics",
+    shortDescription:
+      "Comprehensive logistics platform with three interconnected applications",
+    image: uarra,
+    category: "Web & Mobile",
+    client: "Zaza technologies",
+    duration: "8 months",
     problem:
-      "Client needed a real-time dashboard to monitor multiple investment portfolios with complex data visualization requirements.",
+      "Logistics company needed a comprehensive platform with separate apps for merchants, drivers, and administrators to manage deliveries efficiently.",
     solution:
-      "Built a React-based dashboard with WebSocket connections for real-time updates, integrated D3.js for custom charts, and implemented role-based access control.",
+      "Built three interconnected applications: Merchant App for ordering and tracking, Hero App for drivers to receive and complete deliveries, and ALT App for business management and analytics.",
     technologies: [
-      "React",
+      "React Native",
+      "React Js",
       "Node.js",
-      "D3.js",
-      "WebSocket",
-      "PostgreSQL",
+      "Express Js",
+      "MongoDB",
       "Redis",
+      "Google Maps API",
     ],
     links: {
-      web: "https://fintech-demo.wincider.tech",
-      github: "https://github.com/wincider/fintech-dashboard",
+      web: "https://uarra.com",
+      android:
+        "https://play.google.com/store/apps/details?id=com.creatur.Sharperly&hl=en",
     },
     features: [
-      "Real-time portfolio tracking",
-      "Interactive charts and graphs",
-      "Automated reporting",
-      "Multi-currency support",
+      "Real-time GPS tracking",
+      "Automated dispatching",
+      "Merchant ordering system",
+      "Driver management",
+      "Analytics dashboard",
+      "Payment integration",
     ],
-    results: "40% faster decision-making, $2M in optimized investments",
+    results: "40% faster delivery times, 25% reduction in operational costs",
+    platforms: ["Web", "iOS", "Android"],
   },
   {
     id: 2,
-    name: "MediCare Connect",
-    shortDescription: "Telemedicine mobile app for healthcare providers",
-    image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    category: "Mobile App",
-    client: "HealthPlus Network",
-    duration: "8 months",
-    team: "3 mobile developers, 2 backend developers, 1 UI/UX designer",
-    problem:
-      "Healthcare providers needed a secure platform for virtual consultations with patients, including video calls and medical record sharing.",
-    solution:
-      "Developed cross-platform mobile app using React Native with end-to-end encryption, integrated Twilio for video calls, and built HIPAA-compliant backend.",
-    technologies: [
-      "React Native",
-      "Node.js",
-      "Twilio",
-      "MongoDB",
-      "Socket.io",
-      "AWS",
-    ],
-    links: {
-      web: "https://medicare-demo.wincider.tech",
-      github: "https://github.com/wincider/medicare-connect",
-      ios: "https://apps.apple.com",
-      android: "https://play.google.com",
-    },
-    features: [
-      "Secure video consultations",
-      "Electronic health records",
-      "Prescription management",
-      "Appointment scheduling",
-    ],
-    results:
-      "500+ healthcare providers onboarded, 10k+ consultations in first month",
-  },
-  {
-    id: 3,
-    name: "EcoTrack Sustainability",
-    shortDescription: "Carbon footprint tracking platform",
-    image:
-      "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    name: "Jobbinex",
+    shortDescription: "Job recruitment and placement platform",
+    image: jobbinex,
     category: "Web Application",
-    client: "Green Future Initiative",
-    duration: "4 months",
-    team: "3 developers, 1 data scientist",
-    problem:
-      "Organization needed a tool to help businesses track and reduce their carbon emissions with actionable insights.",
-    solution:
-      "Created a Next.js application with real-time calculations, integrated multiple APIs for emission factors, and built custom analytics dashboard.",
-    technologies: [
-      "Next.js",
-      "Python",
-      "FastAPI",
-      "TensorFlow",
-      "MongoDB",
-      "Chart.js",
-    ],
-    links: {
-      web: "https://ecotrack-demo.wincider.tech",
-      github: "https://github.com/wincider/ecotrack",
-    },
-    features: [
-      "Carbon footprint calculator",
-      "Emission reduction suggestions",
-      "Progress tracking",
-      "Team collaboration",
-    ],
-    results:
-      "30% average reduction in tracked emissions, 200+ companies using platform",
-  },
-  {
-    id: 4,
-    name: "Smart Retail AI",
-    shortDescription: "AI-powered inventory management system",
-    image:
-      "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    category: "AI/ML Solution",
-    client: "RetailTech Solutions",
-    duration: "10 months",
-    team: "2 ML engineers, 3 backend developers, 1 frontend developer",
-    problem:
-      "Retail chain struggling with overstocking and stockouts across 50+ locations.",
-    solution:
-      "Developed ML models to predict demand, built React dashboard for inventory managers, and integrated with existing POS systems.",
-    technologies: [
-      "Python",
-      "TensorFlow",
-      "React",
-      "FastAPI",
-      "PostgreSQL",
-      "Docker",
-    ],
-    links: {
-      web: "https://retailai-demo.wincider.tech",
-      github: "https://github.com/wincider/retail-ai",
-    },
-    features: [
-      "Demand forecasting",
-      "Automated reordering",
-      "Inventory optimization",
-      "Real-time analytics",
-    ],
-    results: "35% reduction in inventory costs, 99% product availability",
-  },
-  {
-    id: 5,
-    name: "EduLearn Platform",
-    shortDescription: "Online learning management system",
-    image:
-      "https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    category: "Web Application",
-    client: "EduTech International",
+    client: "Jobbinex",
     duration: "5 months",
-    team: "4 developers, 1 UI/UX designer, 1 instructional designer",
     problem:
-      "Educational institution needed a modern LMS with interactive features and progress tracking.",
+      "Recruitment agency needed a digital platform to connect job seekers with employers efficiently and freelancers to international clients.",
     solution:
-      "Built comprehensive platform with video streaming, quizzes, forums, and certification system.",
+      "Developed a comprehensive job portal with resume building, job matching algorithms, and real-time application tracking.",
     technologies: [
       "React",
       "Node.js",
       "Express",
       "MongoDB",
-      "Socket.io",
+      "ElasticSearch",
       "AWS S3",
     ],
     links: {
-      web: "https://edulearn-demo.wincider.tech",
-      github: "https://github.com/wincider/edulearn",
-      ios: "https://apps.apple.com",
-      android: "https://play.google.com",
+      web: "https://jobbinex.com",
     },
     features: [
-      "Video courses",
-      "Interactive quizzes",
-      "Student forums",
-      "Progress tracking",
-      "Certificates",
+      "Job search and filtering",
+      "Resume builder",
+      "Application tracking",
+      "Employer dashboard",
+      "Interview scheduling",
+      "Email notifications",
     ],
-    results: "10k+ students enrolled, 95% completion rate",
+    results: "100+ job seekers registered, 50+ freelancers onboarded",
+    platforms: ["Web"],
   },
   {
-    id: 6,
-    name: "LogiTrack Pro",
-    shortDescription: "Fleet management and logistics platform",
-    image:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    category: "Mobile & Web",
-    client: "Global Logistics Co.",
-    duration: "7 months",
-    team: "3 mobile developers, 3 backend developers, 1 UI/UX designer",
+    id: 3,
+    name: "Punterhub",
+    shortDescription: "Sports Expert prediction platform",
+    image: punterhub,
+    category: "Web Application",
+    client: "The Punterhub",
+    duration: "6 months",
     problem:
-      "Logistics company needed real-time tracking and route optimization for 200+ vehicles.",
+      "Sports prediction company needed a real-time platform with live expert user predictions, and user engagement features.",
     solution:
-      "Created React Native driver app and React admin dashboard with real-time GPS tracking and route optimization algorithms.",
+      "Created a real-time betting platform with live odds updates, predictive analytics, and social features for user interaction.",
+    technologies: [
+      "Next.js",
+      "Node.js",
+      "MongoDB",
+      "Redis",
+      "WebSocket",
+      "Chart.js",
+    ],
+    links: {
+      web: "https://thepunterhub.com",
+    },
+    features: [
+      "Prediction engine",
+      "User profiles",
+      "Social betting",
+      "Analytics dashboard",
+      "Payment processing",
+    ],
+    results: "500 active users, 30% increase in user engagement",
+    platforms: ["Web"],
+  },
+  {
+    id: 4,
+    name: "Track API",
+    shortDescription: "AI-powered digital address API",
+    image: trackapi,
+    category: "AI/ML",
+    client: "Zaza Technologies",
+    duration: "4 months",
+    problem:
+      "Businesses needed an intelligent API to track loaction without proper address in Nigeria for seemless deliveries.",
+    solution:
+      "Built an AI-powered tracking API that integrates with multiple carrier systems and uses machine learning to generate digital pluscode for places without proper address.",
+    technologies: [
+      "Python",
+      "TensorFlow",
+      "FastAPI",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+    ],
+    links: {
+      web: "https://track.uarra.com",
+    },
+    features: [
+      "Multi-carrier integration",
+      "Analytics dashboard",
+      "Webhook notifications",
+      "RESTful API",
+    ],
+    results: "99.9% digital address accuracy, 50+ businesses integrated",
+    platforms: ["API"],
+  },
+  {
+    id: 5,
+    name: "Hero App",
+    shortDescription: "Driver delivery management mobile application",
+    image: hero,
+    category: "Mobile App",
+    client: "Zaza Technologies",
+    duration: "5 months",
+    problem:
+      "Delivery drivers needed a mobile app to receive, manage, and complete deliveries efficiently.",
+    solution:
+      "Developed a mobile-first driver application with real-time delivery assignments, GPS navigation, and proof of delivery features.",
     technologies: [
       "React Native",
       "Node.js",
       "PostgreSQL",
-      "Redis",
       "Google Maps API",
       "WebSocket",
     ],
     links: {
-      web: "https://logitrack-demo.wincider.tech",
-      github: "https://github.com/wincider/logitrack",
-      ios: "https://apps.apple.com",
-      android: "https://play.google.com",
+      android:
+        "https://play.google.com/store/apps/details?id=com.creatur.Uarrahero&hl=en-US",
     },
     features: [
-      "Real-time GPS tracking",
-      "Route optimization",
-      "Delivery confirmation",
-      "Driver management",
-      "Analytics dashboard",
+      "Real-time delivery assignment",
+      "GPS navigation",
+      "Proof of delivery",
+      "Delivery history",
+      "Earnings tracking",
+      "Push notifications",
     ],
-    results: "25% reduction in fuel costs, 40% faster deliveries",
+    results: "100+ drivers onboarded, 500+ deliveries completed",
+    platforms: ["iOS", "Android"],
+  },
+  {
+    id: 6,
+    name: "ALT Application",
+    shortDescription: "Logistics business management and analytics dashboard",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    category: "Web Application",
+    client: "Zaza Technologies",
+    duration: "6 months",
+    problem:
+      "Logistics businesses needed a comprehensive dashboard to manage operations, track performance, and analyze data.",
+    solution:
+      "Built a powerful business intelligence dashboard with real-time analytics, fleet management, and performance tracking features.",
+    technologies: ["React", "Node.js", "MongoDB", "D3.js", "Redis", "AWS"],
+    links: {
+      web: "https://alt.uarra.com",
+    },
+    features: [
+      "Real-time analytics",
+      "Performance tracking",
+      "Financial reporting",
+      "Driver management",
+      "Custom dashboards",
+    ],
+    results:
+      "95% client satisfaction, 30% improvement in operational efficiency",
+    platforms: ["Web"],
+  },
+  {
+    id: 7,
+    name: "Sharperly",
+    shortDescription:
+      "Fintech app for international money transfers and bill payments",
+    image: sharperly,
+    category: "Mobile App",
+    client: "Sharperly Pty Ltd",
+    duration: "5 months",
+    problem:
+      "Users needed a seamless way to transfer money internationally and pay bills with competitive exchange rates and low fees.",
+    solution:
+      "Developed a fintech mobile application enabling international money transfers, bill payments, and currency exchange with real-time rates and secure transactions.",
+    technologies: [
+      "React Native",
+      "Node.js",
+      "MongoDB",
+      "Redis",
+      "Payment Gateway API",
+      "Exchange Rate API",
+    ],
+    links: {
+      android:
+        "https://play.google.com/store/apps/details?id=com.sharperly.sharperly&hl=en",
+    },
+    features: [
+      "International money transfers",
+      "Bill payments",
+      "Real-time exchange rates",
+      "Transaction history",
+      "Secure authentication",
+      "Multi-currency support",
+      "Push notifications",
+      "Transaction tracking",
+    ],
+    results: "4.8/5 average rating, 1k+ transactions processed",
+    platforms: ["iOS", "Android"],
+  },
+  {
+    id: 8,
+    name: "Trashit",
+    shortDescription: "Waste management and recycling platform",
+    image: trashit,
+    category: "Web Application",
+    client: "Trashit Integrated Services",
+    duration: "6 months",
+    problem:
+      "Waste management company needed a platform to streamline collection scheduling and recycling tracking.",
+    solution:
+      "Built a comprehensive waste management platform with web dashboard and mobile app for collection scheduling and environmental impact reporting.",
+    technologies: [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Google Maps API",
+      "WebSocket",
+    ],
+    links: {
+      web: "https://trashitintegrated.com",
+    },
+    features: [
+      "Collection scheduling",
+      "User dashboard",
+      "Payment integration",
+      "Real-time notifications",
+    ],
+    results: "500+ users, 20 tons of waste recycled monthly",
+    platforms: ["Web"],
   },
 ];
 
@@ -266,24 +327,39 @@ const Portfolio = () => {
 
   return (
     <div className="bg-[#151515] min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-[#151515] hero-section fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-20 border-b border-[#FFD700]/20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-white">Our </span>
-            <span className="text-[#FFD700]">Projects</span>
-          </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Explore our portfolio of successful projects and innovative
-            solutions
-          </p>
+      {/* Hero Section with Background */}
+      <section
+        className="relative hero-section fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-20 md:py-28 border-b border-[#FFD700]/20"
+        style={{
+          backgroundImage: `url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+        }}
+      >
+        <div className="absolute inset-0 bg-[#151515]/80"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="inline-flex items-center gap-2 border border-[#FFD700]/30 rounded-full px-4 py-2 mb-6 bg-black/50 backdrop-blur-sm">
+              <RiCodeBoxLine className="text-[#FFD700]" />
+              <span className="text-[#FFD700] text-sm">Our Portfolio</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              <span className="text-white">Our </span>
+              <span className="text-[#FFD700]">Projects</span>
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+              Explore our portfolio of successful projects and innovative
+              solutions that drive real business value
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Filter Categories */}
       <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-8">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
+          <div className="flex flex-wrap justify-center gap-3">
             {categories.map((category) => (
               <button
                 key={category}
@@ -291,7 +367,7 @@ const Portfolio = () => {
                 className={`px-6 py-2 rounded-full font-medium transition-all ${
                   filter === category
                     ? "bg-[#FFD700] text-black"
-                    : "bg-gray-900 text-gray-400 hover:bg-[#FFD700]/10 hover:text-[#FFD700] border border-[#FFD700]/20"
+                    : "text-gray-400 border border-[#FFD700]/20"
                 }`}
               >
                 {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -302,7 +378,7 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Grid */}
-      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-8">
+      <section className="fade-in-section opacity-0 translate-y-10 transition-all duration-700 ease-out py-8 pb-24">
         <div className="container mx-auto px-4">
           {filteredProjects.length === 0 ? (
             <div className="text-center py-20">
@@ -319,21 +395,20 @@ const Portfolio = () => {
               {filteredProjects.map((project) => (
                 <div
                   key={project.id}
-                  className="group relative overflow-hidden rounded-2xl bg-gray-900 border border-[#FFD700]/20 hover:border-[#FFD700]/40 transition-all duration-300 cursor-pointer"
-                  onClick={() => setSelectedProject(project)}
+                  className="group relative overflow-hidden rounded-2xl border border-[#FFD700]/10 hover:border-blue-300/50 transition-all duration-500 hover:transform hover:-translate-y-2"
                 >
                   {/* Project Image */}
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-56 overflow-hidden">
                     <img
                       src={project.image}
                       alt={project.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
 
                     {/* Category Badge */}
                     <div className="absolute top-4 left-4">
-                      <span className="bg-[#FFD700]/90 text-black px-3 py-1 rounded-full text-xs font-semibold">
+                      <span className="bg-blue-300 text-black px-3 py-1 rounded-full text-xs font-semibold">
                         {project.category}
                       </span>
                     </div>
@@ -341,24 +416,27 @@ const Portfolio = () => {
 
                   {/* Project Info */}
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#FFD700] transition-colors">
+                    <h3 className="text-xl font-bold text-white mb-2 transition-colors">
                       {project.name}
                     </h3>
-                    <p className="text-gray-400 text-sm line-clamp-2">
+                    <p className="text-gray-400 text-sm line-clamp-2 mb-4">
                       {project.shortDescription}
                     </p>
 
-                    {/* Quick Stats */}
-                    <div className="flex items-center gap-4 mt-4 text-sm text-gray-500">
-                      <div className="flex items-center gap-1">
-                        <FaClock className="text-[#FFD700]" />
-                        <span>{project.duration}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <FaUsers className="text-[#FFD700]" />
-                        <span>{project.team.split(",")[0]}</span>
-                      </div>
+                    {/* Client */}
+                    <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
+                      <FaUsers className="text-blue-300 text-xs" />
+                      <span>{project.client}</span>
                     </div>
+
+                    {/* See More Button */}
+                    <button
+                      onClick={() => setSelectedProject(project)}
+                      className="w-full bg-[#FFD700]/90 border border-[#FFD700]/20 text-black px-4 py-2.5 rounded-xl font-medium text-sm flex items-center justify-center gap-2 hover:bg-[#FFD700] hover:text-black transition-all duration-300 group/btn"
+                    >
+                      <span>See More Details</span>
+                      <FaArrowRight className="text-xs group-hover/btn:translate-x-1 transition-transform" />
+                    </button>
                   </div>
                 </div>
               ))}
@@ -391,10 +469,15 @@ const Portfolio = () => {
 
                 {/* Title Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="bg-[#FFD700]/90 text-black px-3 py-1 rounded-full text-xs font-semibold">
+                      {selectedProject.category}
+                    </span>
+                  </div>
                   <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
                     {selectedProject.name}
                   </h2>
-                  <p className="text-xl text-[#FFD700]">
+                  <p className="text-xl text-blue-300">
                     {selectedProject.shortDescription}
                   </p>
                 </div>
@@ -403,7 +486,7 @@ const Portfolio = () => {
               {/* Content */}
               <div className="p-8">
                 {/* Quick Info Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                   <div className="bg-black/50 rounded-xl p-4 border border-[#FFD700]/10">
                     <p className="text-sm text-gray-500 mb-1">Client</p>
                     <p className="text-white font-semibold">
@@ -414,12 +497,6 @@ const Portfolio = () => {
                     <p className="text-sm text-gray-500 mb-1">Duration</p>
                     <p className="text-white font-semibold">
                       {selectedProject.duration}
-                    </p>
-                  </div>
-                  <div className="bg-black/50 rounded-xl p-4 border border-[#FFD700]/10">
-                    <p className="text-sm text-gray-500 mb-1">Team</p>
-                    <p className="text-white font-semibold">
-                      {selectedProject.team}
                     </p>
                   </div>
                 </div>
@@ -437,7 +514,7 @@ const Portfolio = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                      <span className="w-1 h-6 bg-[#FFD700] rounded-full"></span>
+                      <span className="w-1 h-6 bg-blue-300 rounded-full"></span>
                       Our Solution
                     </h3>
                     <p className="text-gray-400 leading-relaxed">
@@ -455,7 +532,7 @@ const Portfolio = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {selectedProject.features.map((feature, index) => (
                       <div key={index} className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-[#FFD700] rounded-full"></div>
+                        <FaCheckCircle className="text-blue-300 text-xs" />
                         <span className="text-gray-400">{feature}</span>
                       </div>
                     ))}
@@ -465,14 +542,14 @@ const Portfolio = () => {
                 {/* Technologies */}
                 <div className="mb-8">
                   <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-[#FFD700] rounded-full"></span>
+                    <span className="w-1 h-6 bg-blue-300 rounded-full"></span>
                     Technologies Used
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.technologies.map((tech, index) => (
                       <span
                         key={index}
-                        className="px-4 py-2 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-lg text-[#FFD700] text-sm"
+                        className="px-4 py-2 bg-[#FFD700]/5 border border-[#FFD700]/10 rounded-lg text-gray-300 text-sm"
                       >
                         {tech}
                       </span>
@@ -481,8 +558,11 @@ const Portfolio = () => {
                 </div>
 
                 {/* Results */}
-                <div className="mb-8 p-6 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-xl">
-                  <h3 className="text-xl font-bold text-white mb-2">Results</h3>
+                <div className="mb-8 p-6 bg-[#FFD700]/5 border border-[#FFD700]/20 rounded-xl">
+                  <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                    <FaCheckCircle className="text-[#FFD700]" />
+                    Results
+                  </h3>
                   <p className="text-[#FFD700] text-lg">
                     {selectedProject.results}
                   </p>
@@ -491,7 +571,7 @@ const Portfolio = () => {
                 {/* Links */}
                 <div>
                   <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-[#FFD700] rounded-full"></span>
+                    <span className="w-1 h-6 bg-blue-300 rounded-full"></span>
                     Project Links
                   </h3>
                   <div className="flex flex-wrap gap-3">
@@ -500,21 +580,10 @@ const Portfolio = () => {
                         href={selectedProject.links.web}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-lg text-[#FFD700] hover:bg-[#FFD700]/20 transition-colors"
+                        className="flex items-center gap-2 px-4 py-2 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-lg text-[#FFD700] hover:bg-[#FFD700] hover:text-black transition-all duration-300"
                       >
                         <FaGlobe />
                         Live Demo
-                      </a>
-                    )}
-                    {selectedProject.links.github && (
-                      <a
-                        href={selectedProject.links.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-lg text-[#FFD700] hover:bg-[#FFD700]/20 transition-colors"
-                      >
-                        <FaGithub />
-                        GitHub
                       </a>
                     )}
                     {selectedProject.links.ios && (
@@ -522,7 +591,7 @@ const Portfolio = () => {
                         href={selectedProject.links.ios}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-lg text-[#FFD700] hover:bg-[#FFD700]/20 transition-colors"
+                        className="flex items-center gap-2 px-4 py-2 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-lg text-[#FFD700] hover:bg-[#FFD700] hover:text-black transition-all duration-300"
                       >
                         <FaApple />
                         App Store
@@ -533,7 +602,7 @@ const Portfolio = () => {
                         href={selectedProject.links.android}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-lg text-[#FFD700] hover:bg-[#FFD700]/20 transition-colors"
+                        className="flex items-center gap-2 px-4 py-2 bg-[#FFD700]/10 border border-[#FFD700]/20 rounded-lg text-[#FFD700] hover:bg-[#FFD700] hover:text-black transition-all duration-300"
                       >
                         <FaAndroid />
                         Google Play
@@ -546,6 +615,26 @@ const Portfolio = () => {
           </div>
         </div>
       )}
+
+      <style jsx>{`
+        .fade-in-section {
+          transition:
+            opacity 0.8s ease-out,
+            transform 0.8s ease-out;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+          width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+          background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+          background: #ffd700;
+          border-radius: 4px;
+        }
+      `}</style>
     </div>
   );
 };

@@ -82,9 +82,9 @@ export default function Header() {
                 className="lg:hidden p-2 rounded-lg hover:bg-white/10 backdrop-blur-md transition-colors border border-white/20"
               >
                 {isMenuOpen ? (
-                  <RiCloseLine className="w-6 h-6 text-[#FFD700]" />
+                  <RiCloseLine className="w-6 h-6 text-blue-300" />
                 ) : (
-                  <RiMenuLine className="w-6 h-6 text-[#FFD700]" />
+                  <RiMenuLine className="w-6 h-6 text-blue-300" />
                 )}
               </button>
             </div>
